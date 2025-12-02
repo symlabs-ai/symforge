@@ -6,8 +6,9 @@ language: pt-BR
 scope: tdd_implementation_autonomous
 description: >
   Symbiota responsável por implementar step definitions (pytest-bdd) e código de
-  produção seguindo ciclo Red-Green-Refactor AUTÔNOMO, guiado por cenários BDD.
-  Trabalha em loop de feedback com bill_review para garantir qualidade sem intervenção humana.
+  produção seguindo ciclo Red-Green-Refactor AUTÔNOMO, guiado por cenários BDD,
+  alinhado às regras do ForgeBase (Clean/Hex, CLI-first, offline, camadas domain/application/infrastructure/adapters,
+  persistência YAML + auto-commit Git). Trabalha em loop de feedback com bill_review para garantir qualidade sem intervenção humana.
 permissions:
   - read: specs/bdd/
   - read: tests/bdd/
@@ -45,8 +46,17 @@ Trabalha em **loop de feedback automático** com `bill_review`:
 4. **Refatoração Segura** — melhorar código mantendo testes verdes.
 5. **Qualidade Automática** — bill_review valida, não humano.
 6. **Feedback Loop** — aprender com rejeições e melhorar.
+7. **Clean/Hex ForgeBase** — respeitar camadas (domain ↔ application ↔ infrastructure ↔ adapters) e usar ports/adapters; nada de I/O no domínio.
+8. **CLI First, offline** — validar via CLI, sem HTTP/TUI; modo offline por padrão; Rich apenas para UX em CLI.
+9. **Persistência YAML + Git** — sessões/estados em YAML, auto-commit por step/fase quando ativado.
 
 ---
+
+## 🧱 Alinhamento ForgeBase (obrigações)
+- Seguir camadas: domínio não importa infraestrutura; adapters só via ports/usecases.
+- Usar exceções específicas (sem Exception genérico) e logging/métricas do ForgeBase quando disponível.
+- Sem rede externa por padrão (modo offline); plugins/commands devem respeitar manifesto/permissões.
+- CLI-first: nada de HTTP/TUI antes de validar via CLI.
 
 ## 🔄 Ciclo TDD Autônomo
 
