@@ -1,5 +1,8 @@
 # Symbiotas e Agents — Guia Rápido
 
+## Sobre o repositório
+Symforge: CLI/motor para executar processos como código (YAML/Markdown) com symbiotas, checkpoints HIL e rastreabilidade (sessões, handoffs, auto-commit Git). Foco atual: CLI-first, offline, plugins no-code (send/export/hook/generate) e arquitetura Clean/Hex alinhada ao ForgeBase.
+
 ## Referências Obrigatórias
 - Guia de agentes do ForgeBase: `docs/guides/forgebase_guides/agentes-ia/` (início rápido, descoberta, ecossistema).
 - Regras do ForgeBase: `docs/guides/forgebase_guides/usuarios/forgebase-rules.md` (Clean/Hex, CLI-first, offline, persistência YAML + auto-commit Git).
