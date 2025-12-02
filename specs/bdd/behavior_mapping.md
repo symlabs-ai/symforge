@@ -6,7 +6,7 @@
 **Domínio:** 10_forge_core / 50_observabilidade
 
 ### Comportamentos Identificados
-1. **Descrever processo em linguagem natural/Markdown e iniciar sessão**
+1. **Carregar processo descrito em linguagem natural/Markdown e iniciar sessão**
    - Ação: Usuário escreve processo (YAML/Markdown) e roda `symforge start`.
    - Resultado esperado: Sessão criada, passos carregados, artefatos esperados listados.
    - Critério: CLI/TUI mostra sessão ativa com flow carregado; artefatos obrigatórios exibidos.
