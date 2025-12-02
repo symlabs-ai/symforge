@@ -95,6 +95,54 @@ def plugin_repo_invalid(tmp_path: Path) -> Path:
     return _write_plugin(tmp_path / "repo_invalid", manifest, code)
 
 
+@pytest.fixture
+def plugin_repo_hook(tmp_path: Path) -> Path:
+    manifest = """\
+id: hook_logger
+name: Hook Logger
+version: "0.1.0"
+type: hook
+entrypoint: plugin:on_event
+permissions:
+  network: false
+  fs: []
+  env: []
+inputs:
+  context: json
+outputs:
+  status: json
+"""
+    code = """\
+def on_event(context):
+    return {"status": "logged", "event": context.get("event")}
+"""
+    return _write_plugin(tmp_path / "repo_hook", manifest, code)
+
+
+@pytest.fixture
+def plugin_repo_generate(tmp_path: Path) -> Path:
+    manifest = """\
+id: generate_text
+name: Generate Text
+version: "0.1.0"
+type: generate
+entrypoint: plugin:generate
+permissions:
+  network: false
+  fs: []
+  env: []
+inputs:
+  payload: json
+outputs:
+  content: text
+"""
+    code = """\
+def generate(payload):
+    return {"content": f"hello {payload.get('name', 'user')}"}
+"""
+    return _write_plugin(tmp_path / "repo_generate", manifest, code)
+
+
 @given("que tenho um processo em execução com artefatos gerados", target_fixture="processo_em_execucao")
 def processo_em_execucao(workspace: Path) -> dict:
     artefato = workspace / "artefato.md"
@@ -193,3 +241,46 @@ def bloqueio_manifesto(plugin_manifesto_invalido: dict):
     manager: PluginManager = plugin_manifesto_invalido["manager"]
     with pytest.raises(ValueError):
         manager.add_from_path(plugin_manifesto_invalido["repo"])
+
+
+@given('que o plugin "hook_logger" está instalado', target_fixture="plugin_hook_instalado")
+def plugin_hook_instalado(plugin_manager: PluginManager, plugin_repo_hook: Path) -> dict:
+    plugin_manager.add_from_path(plugin_repo_hook)
+    return {"manager": plugin_manager}
+
+
+@when("executo o hook com contexto do passo", target_fixture="executo_hook")
+def executo_hook(plugin_hook_instalado: dict):
+    manager: PluginManager = plugin_hook_instalado["manager"]
+    result = manager.execute_hook("hook_logger", {"event": "step_completed"})
+    plugin_hook_instalado["result"] = result
+    return plugin_hook_instalado
+
+
+@then("o hook registra o evento com sucesso")
+def hook_registrado(executo_hook: dict):
+    result = executo_hook["result"]
+    assert result.get("status") == "logged"
+    assert result.get("event") == "step_completed"
+
+
+@given('que o plugin "generate_text" está instalado', target_fixture="plugin_generate_instalado")
+def plugin_generate_instalado(plugin_manager: PluginManager, plugin_repo_generate: Path) -> dict:
+    plugin_manager.add_from_path(plugin_repo_generate)
+    return {"manager": plugin_manager, "payload": {"name": "Symforge"}}
+
+
+@when("executo a geração com payload", target_fixture="executo_generate")
+def executo_generate(plugin_generate_instalado: dict):
+    manager: PluginManager = plugin_generate_instalado["manager"]
+    payload = plugin_generate_instalado["payload"]
+    result = manager.execute_generate("generate_text", payload)
+    plugin_generate_instalado["result"] = result
+    return plugin_generate_instalado
+
+
+@then("o plugin retorna o conteúdo gerado")
+def conteudo_gerado(executo_generate: dict):
+    result = executo_generate["result"]
+    assert "content" in result
+    assert "Symforge" in result["content"]

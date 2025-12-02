@@ -28,6 +28,16 @@ Funcionalidade: Instalar e usar plugins no-code de envio/export
     Então o arquivo CSV é gerado no path configurado
     E a CLI confirma o sucesso
 
+  Cenário: Executar hook em evento
+    Dado que o plugin "hook_logger" está instalado
+    Quando executo o hook com contexto do passo
+    Então o hook registra o evento com sucesso
+
+  Cenário: Gerar conteúdo com plugin de geração
+    Dado que o plugin "generate_text" está instalado
+    Quando executo a geração com payload
+    Então o plugin retorna o conteúdo gerado
+
   Cenário: Recusar plugin com manifesto inválido
     Dado que um plugin não declara permissões ou tem manifesto incorreto
     Quando tento instalá-lo

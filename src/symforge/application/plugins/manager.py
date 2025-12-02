@@ -67,6 +67,20 @@ class PluginManager:
             return func(input_path, output_path=output_path)
         return func(input_path)
 
+    def execute_hook(self, plugin_id: str, context: dict[str, Any]) -> Any:
+        manifest, module = self._load_plugin(plugin_id)
+        if manifest["type"] != "hook":
+            raise ValueError("Plugin não é do tipo hook")
+        func = self._resolve_entrypoint(manifest, module)
+        return func(context)
+
+    def execute_generate(self, plugin_id: str, payload: dict[str, Any]) -> Any:
+        manifest, module = self._load_plugin(plugin_id)
+        if manifest["type"] != "generate":
+            raise ValueError("Plugin não é do tipo generate")
+        func = self._resolve_entrypoint(manifest, module)
+        return func(payload)
+
     def _load_manifest(self, manifest_path: Path) -> dict[str, Any]:
         return yaml.safe_load(manifest_path.read_text(encoding="utf-8")) or {}
 

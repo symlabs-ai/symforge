@@ -1,8 +1,6 @@
 from pathlib import Path
-from typing import List
 
 import yaml
-
 from symforge.domain.session import Session
 
 
@@ -30,12 +28,12 @@ class ObservabilityUseCases:
             content.append(f"- {item}")
         output_path.write_text("\n".join(content), encoding="utf-8")
 
-    def _validate_nodes(self, nodes: List[dict]) -> None:
+    def _validate_nodes(self, nodes: list[dict]) -> None:
         for node in nodes:
             if "id" not in node or "type" not in node:
                 raise ValueError("Nó inválido no PROCESS")
 
-    def _to_mermaid(self, nodes: List[dict]) -> str:
+    def _to_mermaid(self, nodes: list[dict]) -> str:
         lines = ["```mermaid", "flowchart TD"]
         ids = [n["id"] for n in nodes]
         if len(ids) >= 2:
