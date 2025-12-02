@@ -2,13 +2,21 @@
 
 ## Referências Obrigatórias
 - Guia de agentes do ForgeBase: `docs/guides/forgebase_guides/agentes-ia/` (início rápido, descoberta, ecossistema).
-- Regras gerais do ForgeBase: Clean/Hex, CLI-first, modo offline, persistência YAML + auto-commit Git.
+- Regras do ForgeBase: `docs/guides/forgebase_guides/usuarios/forgebase-rules.md` (Clean/Hex, CLI-first, offline, persistência YAML + auto-commit Git).
+- Prompts de cada symbiota: `process/symbiotes/<nome>/prompt.md`.
+- Contexto MDD/BDD: `docs/`, `specs/bdd/`, `specs/adr/`.
+
+## Defaults para qualquer symbiota
+- Clean/Hex: domínio é puro; adapters só via ports/usecases; nunca colocar I/O no domínio.
+- CLI-first e offline: validar via CLI; evitar HTTP/TUI no MVP; sem rede externa por padrão.
+- Persistência: sessões/estados em YAML; auto-commit Git por step/fase quando habilitado.
+- Plugins: só executar se houver manifesto claro; respeitar permissões (rede=false por padrão).
+- Documentar sessões/handoffs em `project/docs/sessions/` quando aplicável.
 
 ## Symbiotas de Código/Tests (TDD)
-- Seguir camadas (domain → application → infrastructure → adapters) e usar ports/adapters; nada de I/O no domínio.
-- Validar via CLI (sem HTTP/TUI no MVP); usar Rich apenas para UX no terminal.
-- Respeitar manifesto/permissões de plugins; offline por padrão.
-- Consultar: `docs/guides/forgebase_guides/agentes-ia/guia-completo.md` e prompts em `process/symbiotes/tdd_coder/` e `process/symbiotes/test_writer/`.
+- Consultar: `docs/guides/forgebase_guides/agentes-ia/guia-completo.md`, `docs/guides/forgebase_guides/usuarios/forgebase-rules.md`, prompts em `process/symbiotes/tdd_coder/` e `process/symbiotes/test_writer/`.
+- Seguir BDD → TDD: features em `specs/bdd/`, steps em `tests/bdd/`, código em `src/` seguindo camadas ForgeBase.
+- Usar exceções específicas, logging/métricas do ForgeBase; Rich apenas para UX em CLI.
 
 ## Outros Symbiotas
-- Para comportamento específico, consulte o prompt do symbiota correspondente em `process/symbiotes/<nome>/prompt.md` e aplique as regras gerais do ForgeBase quando atuarem no runtime ou nos processos.
+- Sempre ler o prompt do symbiota em `process/symbiotes/<nome>/prompt.md` e aplicar as regras gerais acima quando interagirem com runtime/processos/artefatos.
