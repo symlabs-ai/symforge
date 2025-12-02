@@ -1,0 +1,8 @@
+from enum import Enum
+
+
+class SessionState(str, Enum):
+    RUNNING = "RUNNING"
+    AWAITING_INPUT = "AWAITING_INPUT"
+    AWAITING_DECISION = "AWAITING_DECISION"
+    PAUSED = "PAUSED"

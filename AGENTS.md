@@ -23,3 +23,7 @@ Symforge: CLI/motor para executar processos como código (YAML/Markdown) com sym
 
 ## Outros Symbiotas
 - Sempre ler o prompt do symbiota em `process/symbiotes/<nome>/prompt.md` e aplicar as regras gerais acima quando interagirem com runtime/processos/artefatos.
+
+## Outras observações
+
+- Sempre que o usuário pedir para carregar, impersonar, interpretar uma persona de symbiota ou agente. Responda a ele sempre com o nome do symbiota entr chaves [bill_review] diz: Estou começando a analisar ....
