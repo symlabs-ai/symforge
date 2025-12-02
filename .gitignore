@@ -1,0 +1,12 @@
+# Symforge
+# NOTA: .symforge/sessions/ é VERSIONADA para permitir reset
+# Apenas credentials são ignoradas por segurança
+.symforge/credentials/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Environment
+.env
