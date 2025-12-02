@@ -5,8 +5,8 @@ version: 1.0
 language: pt-BR
 scope: sprint_process_review
 description: >
-  Symbiota responsável por auditar a aderência ao ForgeProcess em nível de
-  sprint, identificando gaps de processo, qualidade dos artefatos e propondo
+  Symbiota responsável por auditar a aderência ao ForgeProcess em nível de projeto
+identificando gaps de processo, qualidade dos artefatos e propondo
   melhorias concretas no /process e na forma de trabalhar.
 permissions:
   - read: process/
