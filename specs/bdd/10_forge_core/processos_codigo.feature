@@ -1,7 +1,7 @@
 # 10_forge_core/processos_codigo.feature
 # Execução versionada de processos como código com rollback seguro
 
-@core @ci-fast
+@sdk @ci-fast
 FUNCIONALIDADE: Executar processo descrito em linguagem natural com rollback seguro
   PARA orquestrar qualquer processo (produto, editorial, operações) sem gambiarras
   COMO facilitador ou tech lead

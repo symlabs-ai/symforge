@@ -1,7 +1,7 @@
 # 10_forge_core/init_processos.feature
 # Inicializar e validar processos técnicos ou não técnicos
 
-@core @ci-fast
+@sdk @ci-fast
 FUNCIONALIDADE: Inicializar projeto com processos técnicos ou não técnicos
   PARA começar rápido em qualquer domínio
   COMO usuário que não quer montar estrutura manualmente

@@ -1,7 +1,7 @@
 # 10_forge_core/symbiotas_hil.feature
 # Symbiotas 24x7 guiando execução com checkpoints HIL
 
-@core @hil @ci-fast
+@sdk @hil @ci-fast
 FUNCIONALIDADE: Conduzir execução com symbiotas e checkpoints HIL
   PARA manter controle humano nos pontos críticos
   COMO facilitador ou PO
