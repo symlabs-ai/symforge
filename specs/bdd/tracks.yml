@@ -1,0 +1,65 @@
+# Mapeamento de Tracks (Value/Support) e unidades de valor de negócio por feature
+# Vincula comportamentos BDD aos ValueTracks do MDD
+
+tracks:
+  # VALUE TRACKS
+
+  - id: value_processos_codigo_rollback
+    type: VALUE
+    name: "Processos como código com rollback seguro"
+    owner: "Produto/Plataforma"
+    metrics:
+      - adocao_processos_codigo        # nº de projetos iniciados via symforge init
+      - sessao_valida_sem_erro         # % sessões sem falhas de validação
+      - rollback_sucesso               # % resets bem-sucedidos sem perda de rastro
+    features:
+      - specs/bdd/10_forge_core/processos_codigo.feature
+    notes: "Baseline para orquestrar qualquer domínio com segurança."
+
+  - id: value_symbiotas_hil
+    type: VALUE
+    name: "Symbiotas 24x7 com checkpoints HIL"
+    owner: "Produto/Plataforma"
+    metrics:
+      - decisoes_registradas           # % checkpoints HIL com decisão registrada
+      - tempo_espera_decisao           # tempo médio em AWAITING_DECISION
+      - completude_fluxo_symbiota      # % passos completados via symbiota sem erro
+    features:
+      - specs/bdd/10_forge_core/symbiotas_hil.feature
+    notes: "Garante controle humano e execução contínua."
+
+  - id: value_plugins_no_code
+    type: VALUE
+    name: "Plugins no-code para envios/exports"
+    owner: "Produto/Plataforma"
+    metrics:
+      - plugins_instalados             # nº de plugins instalados/ativos
+      - sucesso_envio_export           # taxa de sucesso de envios/exports
+      - tempo_config_plugin            # tempo para configurar plugin no-code
+    features:
+      - specs/bdd/30_plugins/plugins_no_code.feature
+    notes: "Elimina gambiarras para canais/formatos e habilita BYO/marketplace."
+
+  - id: value_init_multi_dominios
+    type: VALUE
+    name: "Init rápido para processos técnicos e não técnicos"
+    owner: "Produto/Plataforma"
+    metrics:
+      - init_concluido                 # % inits concluídos sem erro
+      - tempo_primeiro_fluxo           # tempo até rodar primeira sessão
+      - validacao_processos            # taxa de sucesso em validate recursive
+    features:
+      - specs/bdd/10_forge_core/init_processos.feature
+    notes: "Entrega estrutura-alvo pronta para qualquer domínio (Forge/Book/Ops)."
+
+  - id: value_observabilidade_handoff
+    type: SUPPORT
+    name: "Observabilidade e handoff rastreável"
+    owner: "Produto/Plataforma"
+    metrics:
+      - geracao_diagramas_ok           # % de diagramas gerados sem divergência
+      - handoff_completo               # % handoffs contendo estado/decisoes/notas
+      - tempo_gerar_handoff            # tempo para gerar export
+    features:
+      - specs/bdd/50_observabilidade/rastreabilidade_handoff.feature
+    notes: "Comunicação auditável do fluxo, alinhada à execução real."
