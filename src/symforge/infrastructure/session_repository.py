@@ -1,6 +1,5 @@
 import uuid
 from pathlib import Path
-from typing import Optional
 
 import yaml
 
@@ -19,7 +18,7 @@ class SessionRepository:
         self.base_dir = base_dir
         self.base_dir.mkdir(parents=True, exist_ok=True)
 
-    def create(self, process: ProcessDefinition, missing: Optional[list[str]] = None) -> Session:
+    def create(self, process: ProcessDefinition, missing: list[str] | None = None) -> Session:
         session_id = uuid.uuid4().hex[:8]
         session = Session(
             id=session_id,
@@ -51,7 +50,7 @@ class SessionRepository:
     def load(self, session_id: str) -> Session:
         path = self.base_dir / f"{session_id}.yml"
         data = yaml.safe_load(path.read_text(encoding="utf-8"))
-        session = Session(
+        return Session(
             id=data["id"],
             process_name=data["process_name"],
             state=SessionState(data["state"]),
@@ -60,4 +59,3 @@ class SessionRepository:
             history=data.get("history", []),
             pending_decision=data.get("pending_decision", False),
         )
-        return session

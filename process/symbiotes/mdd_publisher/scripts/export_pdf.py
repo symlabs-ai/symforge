@@ -19,9 +19,9 @@ from __future__ import annotations
 import argparse
 import shutil
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
-import sys
 
 SCRIPT_DIR = Path(__file__).parent
 UTILS_DIR = SCRIPT_DIR / "utils"
@@ -29,14 +29,13 @@ if str(UTILS_DIR) not in sys.path:
     sys.path.insert(0, str(UTILS_DIR))
 
 from helpers import (
-    read_text,
-    write_text,
+    ExportError,
+    MissingDependencyError,
+    default_output_for_md,
     log_export,
     md_to_html_basic,
+    read_text,
     wrap_html,
-    default_output_for_md,
-    MissingDependencyError,
-    ExportError,
 )
 
 # Importa configuração centralizada

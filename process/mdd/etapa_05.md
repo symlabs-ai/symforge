@@ -96,7 +96,7 @@ Síntese das percepções e sugestões dos participantes após a apresentação 
 
 ## 🧭 Decisão Final
 Registro da decisão consensual:
-- Revisar, avançar ou encerrar o projeto.  
+- Revisar, avançar ou encerrar o projeto.
 - Motivos e próximos passos definidos pelos stakeholders.
 
 ---
@@ -145,5 +145,3 @@ O projeto deve conter:
 * `project/data/validacao/` → base de métricas consolidadas.
 
 Esses artefatos encerram o ciclo atual e **reabrem o aprendizado** com base em dados reais e feedback humano.
-
-

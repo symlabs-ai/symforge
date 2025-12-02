@@ -15,15 +15,15 @@ Ele formaliza o que será modificado — seja na narrativa, no produto, no públ
 # 🔁 Revisão Estratégica — [Nome do Projeto]
 
 ## 1. Contexto da Revisão
-Explique brevemente o motivo da revisão.  
+Explique brevemente o motivo da revisão.
 > Exemplo: “Os testes de validação indicaram que o público respondeu melhor a mensagens funcionais do que emocionais.”
 
 ---
 
 ## 2. Aprendizados-Chave
 Liste os principais insights obtidos com o processo de validação.
-- [Insight 1]  
-- [Insight 2]  
+- [Insight 1]
+- [Insight 2]
 - [Insight 3]
 
 ---
@@ -46,8 +46,8 @@ Apresente o novo foco simbiótico do próximo ciclo.
 
 ## 5. Ações Imediatas
 Liste as ações concretas que serão tomadas na próxima rodada.
-- Atualizar `visao.md` com nova proposta.  
-- Ajustar template de site com nova CTA.  
+- Atualizar `visao.md` com nova proposta.
+- Ajustar template de site com nova CTA.
 - Reconfigurar métricas de validação.
 
 ---

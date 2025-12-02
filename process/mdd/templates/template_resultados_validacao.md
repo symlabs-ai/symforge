@@ -46,8 +46,8 @@ Resuma as percepções qualitativas colhidas durante a apresentação dos result
 
 ## 5. Lições Aprendidas
 Liste os principais aprendizados e descobertas da validação.
-- [Insight 1]  
-- [Insight 2]  
+- [Insight 1]
+- [Insight 2]
 - [Insight 3]
 
 ---

@@ -42,8 +42,8 @@ Defina o que será desenvolvido nesta fase e o que será deixado para versões f
 
 ## 4. Objetivos do MVP
 Liste as metas quantitativas e qualitativas da próxima fase.
-- Alcançar 10 clientes ativos no piloto.  
-- Obter feedback funcional de 80% dos usuários.  
+- Alcançar 10 clientes ativos no piloto.
+- Obter feedback funcional de 80% dos usuários.
 - Validar modelo de negócio (assinatura ou licenciamento).
 
 ---
@@ -69,8 +69,8 @@ Liste quem participou da decisão e quem liderará a próxima fase.
 
 ## 7. Próximos Passos
 Registre as ações imediatas após a aprovação.
-- Formalizar backlog inicial e escopo técnico.  
-- Atualizar `sumario_executivo.md` com ajustes do MVP.  
+- Formalizar backlog inicial e escopo técnico.
+- Atualizar `sumario_executivo.md` com ajustes do MVP.
 - Definir ciclo de validação pós-lançamento.
 
 ---

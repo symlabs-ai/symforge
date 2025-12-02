@@ -31,9 +31,9 @@ Descreva a dor, necessidade ou contexto que justifica a existência do produto.
 Apresente o conceito central da solução e o valor que ela entrega.
 > Exemplo: “Com nossa IA local, cada empresa tem autonomia total sobre seus dados e resultados.”
 
-- Diferencial 1: [texto breve].  
-- Diferencial 2: [texto breve].  
-- Diferencial 3: [texto breve].  
+- Diferencial 1: [texto breve].
+- Diferencial 2: [texto breve].
+- Diferencial 3: [texto breve].
 
 ---
 
@@ -51,9 +51,9 @@ Mostre o funcionamento de forma simples e visual.
 ## 🌟 Benefícios
 Liste os principais ganhos para o público.
 
-✅ [Benefício 1]  
-🚀 [Benefício 2]  
-🔒 [Benefício 3]  
+✅ [Benefício 1]
+🚀 [Benefício 2]
+🔒 [Benefício 3]
 
 ---
 
@@ -72,11 +72,10 @@ Inclua provas sociais, depoimentos ou dados reais se disponíveis.
 
 ## 📩 Chamada à Ação (CTA)
 Finalize com um convite direto e mensurável.
-> Exemplo: “Quer testar nossa solução?  
+> Exemplo: “Quer testar nossa solução?
 > [Peça acesso antecipado](#) e faça parte do grupo piloto.”
 
 ---
 
 ## 📎 Rodapé / Créditos
 _Autores, datas, contatos e referências relevantes._
-

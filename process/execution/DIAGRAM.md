@@ -1,9 +1,9 @@
 # Resumo do Processo
 
-**ID:** `execution`  
-**Versão:** 1.0.0  
-**Título:** Execution - Roadmap Planning + TDD  
-**Tipo:** Subprocesso  
+**ID:** `execution`
+**Versão:** 1.0.0
+**Título:** Execution - Roadmap Planning + TDD
+**Tipo:** Subprocesso
 
 **Descrição:**
 > Macro-processo que conecta especificação BDD com backlog técnico e código testado, orquestrando Roadmap Planning e TDD Workflow.
@@ -23,7 +23,7 @@
 
 ## Fluxo
 
-**Total de nós:** 5  
+**Total de nós:** 5
 
 | Tipo | Quantidade |
 |------|------------|

@@ -31,11 +31,11 @@ Processos e sessões versionados em Git (auto-commit configurável); prompts com
 ---
 
 ## Benefícios-Chave para Usuários
-1) Processos em linguagem natural: o fluxo é descrito como se fala com a equipe, sem notações complexas, e o Symforge traduz em execução organizada.  
-2) Voltar atrás sem medo: cada passo fica versionado, com histórico de decisões e artefatos, permitindo rollback seguro e recuperação rápida.  
-3) Symbiotas 24x7: agentes acompanham o processo o tempo todo, aprendem com o contexto e pedem aprovação apenas nos pontos críticos.  
-4) Plugins sem código: integrações (e-mail, WhatsApp, exportações) são criadas ou ajustadas pelo usuário usando modelos simples, sem programar.  
-5) Diagramas sob demanda: visões automáticas e sempre atualizadas facilitam entendimento, alinhamento e apresentação para stakeholders.  
+1) Processos em linguagem natural: o fluxo é descrito como se fala com a equipe, sem notações complexas, e o Symforge traduz em execução organizada.
+2) Voltar atrás sem medo: cada passo fica versionado, com histórico de decisões e artefatos, permitindo rollback seguro e recuperação rápida.
+3) Symbiotas 24x7: agentes acompanham o processo o tempo todo, aprendem com o contexto e pedem aprovação apenas nos pontos críticos.
+4) Plugins sem código: integrações (e-mail, WhatsApp, exportações) são criadas ou ajustadas pelo usuário usando modelos simples, sem programar.
+5) Diagramas sob demanda: visões automáticas e sempre atualizadas facilitam entendimento, alinhamento e apresentação para stakeholders.
 6) Composição fácil de novos processos: em qualquer área, combinam-se blocos e templates em linguagem natural para criar e adaptar fluxos rápido, sem depender de ferramentas diferentes ou time técnico.
 
 ---

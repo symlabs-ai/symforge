@@ -1,9 +1,9 @@
 # Resumo do Processo
 
-**ID:** `forgeprocess`  
-**Versão:** 2.0.0  
-**Título:** ForgeProcess  
-**Tipo:** Processo Principal  
+**ID:** `forgeprocess`
+**Versão:** 2.0.0
+**Título:** ForgeProcess
+**Tipo:** Processo Principal
 
 **Descrição:**
 > Ciclo de raciocínio que transforma intenção de valor em comportamentos verificáveis, código testado, execução observável e aprendizado contínuo, medindo progresso em unidades de valor de negócio em vez de tempo, tarefas ou story points.
@@ -30,7 +30,7 @@
 
 ## Fluxo
 
-**Total de nós:** 11  
+**Total de nós:** 11
 
 | Tipo | Quantidade |
 |------|------------|

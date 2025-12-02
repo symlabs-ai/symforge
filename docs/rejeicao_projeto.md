@@ -1,7 +1,7 @@
 # 🛑 Rejeição de Projeto — Symforge
 
 ## 1. Contexto da Decisão
-Descreva brevemente a jornada até a decisão de rejeição.  
+Descreva brevemente a jornada até a decisão de rejeição.
 > Exemplo: “Após três ciclos de validação, as versões A, B e C não atingiram as métricas mínimas de interesse de mercado.”
 
 ---
@@ -18,17 +18,17 @@ Resuma os resultados que levaram à decisão de encerramento.
 ---
 
 ## 3. Motivos da Rejeição
-- [ ] Ausência de tração de mercado.  
-- [ ] Problema mal definido ou pouco relevante.  
-- [ ] Concorrência mais madura e consolidada.  
-- [ ] Custo-benefício desfavorável.  
+- [ ] Ausência de tração de mercado.
+- [ ] Problema mal definido ou pouco relevante.
+- [ ] Concorrência mais madura e consolidada.
+- [ ] Custo-benefício desfavorável.
 - [ ] Outros: [descrever].
 
 ---
 
 ## 4. Aprendizados Obtidos
-- O que o mercado mostrou sobre a hipótese.  
-- O que funcionou e o que não funcionou (mensagem, plugins, symbiotas, rollback).  
+- O que o mercado mostrou sobre a hipótese.
+- O que funcionou e o que não funcionou (mensagem, plugins, symbiotas, rollback).
 - Padrões ou comportamentos observados.
 
 > Exemplo: “Interesse em rollback e rastreabilidade, mas pouca disposição para configurar plugins no-code.”
@@ -37,9 +37,9 @@ Resuma os resultados que levaram à decisão de encerramento.
 
 ## 5. Oportunidades Futuras
 Indique potenciais direções ou temas derivados que podem ser explorados em novos ciclos.
-- [ ] Ajustar foco de domínio (ex.: ops reguladas vs. editorial).  
-- [ ] Simplificar experiência de plugins no-code.  
-- [ ] Explorar oferta de serviços/consultoria.  
+- [ ] Ajustar foco de domínio (ex.: ops reguladas vs. editorial).
+- [ ] Simplificar experiência de plugins no-code.
+- [ ] Explorar oferta de serviços/consultoria.
 - [ ] Outros: [descrever].
 
 ---

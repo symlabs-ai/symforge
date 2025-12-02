@@ -1,9 +1,9 @@
 # Resumo do Processo
 
-**ID:** `mdd`  
-**Versão:** 1.0.0  
-**Título:** MDD - Market Driven Development  
-**Tipo:** Subprocesso  
+**ID:** `mdd`
+**Versão:** 1.0.0
+**Título:** MDD - Market Driven Development
+**Tipo:** Subprocesso
 
 **Descrição:**
 > Processo de validação de mercado que transforma hipóteses em produtos validados através de artefatos Markdown versionáveis.
@@ -16,7 +16,7 @@
 
 ## Fluxo
 
-**Total de nós:** 9  
+**Total de nós:** 9
 
 | Tipo | Quantidade |
 |------|------------|

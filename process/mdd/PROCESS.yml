@@ -13,9 +13,9 @@ parent_phase: "forgeprocess.mdd"
 narrative: |
   O Market Driven Development (MDD) é uma metodologia de desenvolvimento de produtos
   guiada por sinais reais de mercado, não por suposições internas.
-  
+
   Cada ciclo do MDD transforma uma hipótese em um produto validado, por meio de
-  artefatos simples, versionáveis e legíveis em Markdown (.md). 
+  artefatos simples, versionáveis e legíveis em Markdown (.md).
 
   Todos os documentos em .md são a fonte da verdade — PDFs, slides e sites são
   projeções renderizadas desses arquivos.
@@ -38,7 +38,7 @@ phases:
         narrative: |
           A partir de uma hipótese inicial, cria-se uma visão clara e inspiradora do produto.
           É o momento de formular propósito, problema de mercado, proposta de valor
-          e a métrica inicial de validação. 
+          e a métrica inicial de validação.
         spec_file: "etapa_01.md"
         inputs:
           - path: "docs/hipotese.md"

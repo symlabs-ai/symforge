@@ -110,13 +110,13 @@ Com a validação de mercado e a aprovação do MVP, o ciclo MDD é concluído. 
 
 ## 🗂️ Estrutura de Pastas Alvo (projetos ForgeProcess)
 
-> **Nota sobre este repositório**  
-> Este repositório **não** cria diretórios de projeto como `project/`, `process/`, `docs/` ou `output/`.  
-> Ele apenas define a **estrutura padrão** que será criada em projetos reais por ferramentas como  
+> **Nota sobre este repositório**
+> Este repositório **não** cria diretórios de projeto como `project/`, `process/`, `docs/` ou `output/`.
+> Ele apenas define a **estrutura padrão** que será criada em projetos reais por ferramentas como
 > `symforge init -p forgeprocess myproject`.
 >
-> - **Templates** ficam em `process/templates/` (no projeto alvo).  
-> - **Artefatos entregues** ficam em `docs/`.  
+> - **Templates** ficam em `process/templates/` (no projeto alvo).
+> - **Artefatos entregues** ficam em `docs/`.
 > - **Renderizações** ficam em `output/docs/`.
 
 ```plaintext

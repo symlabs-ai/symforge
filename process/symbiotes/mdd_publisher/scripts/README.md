@@ -95,4 +95,3 @@ python symbiotas/mdd_publisher/scripts/export_html.py --input project/docs/sumar
 python symbiotas/mdd_publisher/scripts/export_pdf.py  --input project/docs/sumario_executivo.md
 ```
 3) Verifique saídas em `project/output/docs/` e o log em `project/output/logs/export_history.log`.
-

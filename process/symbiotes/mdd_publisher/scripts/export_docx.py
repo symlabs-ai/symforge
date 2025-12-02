@@ -13,15 +13,21 @@ Uso:
 from __future__ import annotations
 
 import argparse
-from pathlib import Path
 import sys
+from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
 UTILS_DIR = SCRIPT_DIR / "utils"
 if str(UTILS_DIR) not in sys.path:
     sys.path.insert(0, str(UTILS_DIR))
 
-from helpers import read_text, log_export, default_output_for_md, md_to_html_basic, MissingDependencyError
+from helpers import (
+    MissingDependencyError,
+    default_output_for_md,
+    log_export,
+    md_to_html_basic,
+    read_text,
+)
 
 
 def export_docx(input_md: Path, output_docx: Path | None = None) -> Path:
@@ -44,8 +50,6 @@ def export_docx(input_md: Path, output_docx: Path | None = None) -> Path:
     """
     try:
         from docx import Document  # type: ignore
-        from docx.shared import Pt, RGBColor  # type: ignore
-        from docx.enum.text import WD_PARAGRAPH_ALIGNMENT  # type: ignore
     except Exception as e:  # pragma: no cover
         raise MissingDependencyError("Biblioteca 'python-docx' não disponível.") from e
 

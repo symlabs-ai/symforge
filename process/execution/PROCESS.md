@@ -44,10 +44,10 @@ BDD (O QUÊ fazer)
   - análise de dependências,
   - estimativas e priorização,
   - criação de `ROADMAP.md` e `BACKLOG.md`.
-- Documento de referência:  
+- Documento de referência:
   `process/execution/roadmap_planning/ROADMAP_PLANNING_PROCESS.md`
 
-**Pergunta central:**  
+**Pergunta central:**
 > Em que ordem, com quais decisões técnicas e por quem estas features serão implementadas?
 
 ---
@@ -59,10 +59,10 @@ BDD (O QUÊ fazer)
   - escrever testes antes do código,
   - implementar o mínimo para passar,
   - refatorar com segurança.
-- Documento de referência:  
+- Documento de referência:
   `process/execution/tdd/TDD_PROCESS.md`
 
-**Pergunta central:**  
+**Pergunta central:**
 > Como transformar especificações BDD em código confiável, com testes guiando cada passo?
 
 ---
@@ -82,7 +82,7 @@ process/
         └── (demais fases de delivery e feedback vivem em `process/delivery/…`)
 ```
 
-> Este repositório guarda esses arquivos em `processes/forgeprocess/...`.  
+> Este repositório guarda esses arquivos em `processes/forgeprocess/...`.
 > Em um projeto alvo, ferramentas como `symforge init -p forgeprocess myproject` deverão
 > copiar esse conteúdo para `process/` com o layout mostrado acima.
 

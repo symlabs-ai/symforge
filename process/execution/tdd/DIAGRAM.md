@@ -1,9 +1,9 @@
 # Resumo do Processo
 
-**ID:** `tdd`  
-**Versão:** 1.0.0  
-**Título:** TDD - Test Driven Development  
-**Tipo:** Subprocesso  
+**ID:** `tdd`
+**Versão:** 1.0.0
+**Título:** TDD - Test Driven Development
+**Tipo:** Subprocesso
 
 **Descrição:**
 > Implementação guiada por testes usando ciclo Red-Green-Refactor, transformando especificações BDD em código testado.
@@ -16,7 +16,7 @@
 
 ## Fluxo
 
-**Total de nós:** 13  
+**Total de nós:** 13
 
 | Tipo | Quantidade |
 |------|------------|

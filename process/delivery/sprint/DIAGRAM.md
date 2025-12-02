@@ -1,9 +1,9 @@
 # Resumo do Processo
 
-**ID:** `sprint`  
-**Versão:** 1.0.0  
-**Título:** Sprint - Session-Based Development  
-**Tipo:** Subprocesso  
+**ID:** `sprint`
+**Versão:** 1.0.0
+**Título:** Sprint - Session-Based Development
+**Tipo:** Subprocesso
 
 **Descrição:**
 > Organização do trabalho em sprints e sessões, adaptado para agent coders com modelo session-based.
@@ -16,7 +16,7 @@
 
 ## Fluxo
 
-**Total de nós:** 10  
+**Total de nós:** 10
 
 | Tipo | Quantidade |
 |------|------------|

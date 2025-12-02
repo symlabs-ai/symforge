@@ -2,7 +2,7 @@
 
 **Contrato de estrutura de pastas para projetos inicializados com `symforge init -p forgeprocess myproject`.**
 
-> **Comentário**  
+> **Comentário**
 > Este layout não é “engessado”: ele define a base mínima para que o ForgeProcess,
 > o `symforge` e os symbiotas funcionem. Times podem **estender** essa estrutura
 > (por exemplo, adicionando pastas ou arquivos específicos do domínio) desde que

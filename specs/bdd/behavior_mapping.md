@@ -2,7 +2,7 @@
 
 ## ValueTrack: Processos como código cross-domain com rollback seguro
 
-**Tipo:** VALUE  
+**Tipo:** VALUE
 **Domínio:** 10_forge_core / 50_observabilidade
 
 ### Comportamentos Identificados
@@ -33,7 +33,7 @@
 
 ## ValueTrack: Execução guiada por symbiotas 24x7 com HIL
 
-**Tipo:** SUPPORT  
+**Tipo:** SUPPORT
 **Domínio:** 10_forge_core / 50_observabilidade
 
 ### Comportamentos Identificados
@@ -64,7 +64,7 @@
 
 ## ValueTrack: Plugins no-code para envios/exports (send/export/hook/generate)
 
-**Tipo:** VALUE  
+**Tipo:** VALUE
 **Domínio:** 30_plugins
 
 ### Comportamentos Identificados
@@ -101,7 +101,7 @@
 
 ## ValueTrack: Biblioteca multi-processo e composição em linguagem natural
 
-**Tipo:** SUPPORT  
+**Tipo:** SUPPORT
 **Domínio:** 10_forge_core
 
 ### Comportamentos Identificados
@@ -132,7 +132,7 @@
 
 ## ValueTrack: Rastreabilidade, observabilidade e diagramas automáticos
 
-**Tipo:** SUPPORT  
+**Tipo:** SUPPORT
 **Domínio:** 50_observabilidade
 
 ### Comportamentos Identificados

@@ -1,5 +1,5 @@
 import pytest
-from pytest_bdd import scenarios, given, when, then
+from pytest_bdd import given, scenarios, then, when
 
 pytestmark = pytest.mark.skip("BDD (rastreabilidade_handoff) pendente de implementação")
 

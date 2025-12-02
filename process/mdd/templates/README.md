@@ -162,4 +162,3 @@ Localizados em `process/templates/site_templates/`, com variações de design:
 
 > **Resumo:** Este conjunto de templates é o **esqueleto simbiótico do MDD**.
 > Cada arquivo é uma peça do diálogo entre o humano, o mercado e os symbiotas — um ciclo contínuo de aprendizado, criação e validação.
-

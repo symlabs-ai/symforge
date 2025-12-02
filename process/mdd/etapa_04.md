@@ -46,8 +46,8 @@ _Apresentação visual curta (equivalente à Hero Section)_
 Explique o cenário, a dor e a oportunidade que originam o produto.
 Use **negrito** para pontos críticos e *itálico* para nuances.
 
-- Situação de mercado atual.  
-- Falhas ou ineficiências existentes.  
+- Situação de mercado atual.
+- Falhas ou ineficiências existentes.
 - Consequências para o público.
 
 ---
@@ -57,8 +57,8 @@ Apresente a ideia central e a transformação que o produto oferece.
 
 > “Nossa solução transforma X em Y, de forma simples e eficiente.”
 
-- Elemento 1 da proposta.  
-- Elemento 2 da proposta.  
+- Elemento 1 da proposta.
+- Elemento 2 da proposta.
 - Elemento 3 da proposta.
 
 ---
@@ -77,17 +77,17 @@ Descreva visualmente a arquitetura ou os estágios do processo.
 ## 🌟 Benefícios e Diferenciais
 Mostre os ganhos concretos da solução.
 
-✅ Reduz custos operacionais.  
-🚀 Aumenta a produtividade.  
-🔒 Garante segurança e compliance.  
+✅ Reduz custos operacionais.
+🚀 Aumenta a produtividade.
+🔒 Garante segurança e compliance.
 
 ---
 
 ## 🧭 Casos de Uso
 Apresente exemplos reais ou hipotéticos que demonstram valor.
 
-**Exemplo 1:** [descrição breve].  
-**Exemplo 2:** [descrição breve].  
+**Exemplo 1:** [descrição breve].
+**Exemplo 2:** [descrição breve].
 **Exemplo 3:** [descrição breve].
 
 ---
@@ -95,14 +95,14 @@ Apresente exemplos reais ou hipotéticos que demonstram valor.
 ## 🗺️ Roadmap e Próximos Passos
 Mostre maturidade e planejamento.
 
-1. **MVP:** protótipo funcional validado.  
-2. **Beta:** abertura controlada para early adopters.  
-3. **Lançamento:** disponibilização pública.  
+1. **MVP:** protótipo funcional validado.
+2. **Beta:** abertura controlada para early adopters.
+3. **Lançamento:** disponibilização pública.
 
 ---
 
 ## 📩 Chamada à Ação
-> Quer testar ou saber mais?  
+> Quer testar ou saber mais?
 > [Clique aqui](#) e participe do início dessa jornada.
 
 ---
@@ -181,5 +181,3 @@ O projeto deve conter:
 * `project/output/sites/site_01–03/` → versões HTML publicadas e rastreáveis.
 
 Essas páginas representam o **primeiro contato real entre o produto e o mercado**, permitindo validar se a mensagem desperta atenção, confiança e engajamento.
-
-

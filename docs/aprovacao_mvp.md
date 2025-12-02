@@ -29,9 +29,9 @@ Defina o que será desenvolvido nesta fase e o que fica para versões futuras.
 
 ## 4. Objetivos do MVP
 Liste as metas quantitativas e qualitativas da próxima fase.
-- Alcançar 5 projetos ativos em ≥3 domínios.  
-- Obter validação funcional de >80% dos usuários piloto.  
-- Medir adoção de plugins no-code (envios/exports) e rollback seguro.  
+- Alcançar 5 projetos ativos em ≥3 domínios.
+- Obter validação funcional de >80% dos usuários piloto.
+- Medir adoção de plugins no-code (envios/exports) e rollback seguro.
 - Validar plano (free até 10 usuários + assinatura/add-ons).
 
 ---
@@ -56,9 +56,9 @@ Liste as metas quantitativas e qualitativas da próxima fase.
 ---
 
 ## 7. Próximos Passos
-- Formalizar backlog inicial e escopo do MVP.  
-- Atualizar sumário/pitch/sites com a mensagem vencedora.  
-- Priorizar plugins no-code (envio/export) e experiência de rollback.  
+- Formalizar backlog inicial e escopo do MVP.
+- Atualizar sumário/pitch/sites com a mensagem vencedora.
+- Priorizar plugins no-code (envio/export) e experiência de rollback.
 - Definir ciclo de validação pós-lançamento e métricas de sucesso.
 
 ---

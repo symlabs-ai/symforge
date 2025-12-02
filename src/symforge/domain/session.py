@@ -1,5 +1,4 @@
 from dataclasses import dataclass, field
-from typing import List, Optional
 
 from symforge.domain.states import SessionState
 
@@ -9,12 +8,12 @@ class Session:
     id: str
     process_name: str
     state: SessionState = SessionState.RUNNING
-    required_artifacts: List[str] = field(default_factory=list)
-    missing_artifacts: List[str] = field(default_factory=list)
-    history: List[str] = field(default_factory=list)
+    required_artifacts: list[str] = field(default_factory=list)
+    missing_artifacts: list[str] = field(default_factory=list)
+    history: list[str] = field(default_factory=list)
     pending_decision: bool = False
 
-    def mark_awaiting_input(self, missing: List[str]) -> None:
+    def mark_awaiting_input(self, missing: list[str]) -> None:
         self.state = SessionState.AWAITING_INPUT
         self.missing_artifacts = missing
 

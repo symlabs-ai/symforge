@@ -28,8 +28,8 @@ Explique a dor do mercado e a forma como o produto a resolve.
 
 ## 3. Modelo de Negócio
 Defina como o produto gera e captura valor.
-- Estratégia de monetização: [venda direta / assinatura / freemium / licenciamento]  
-- Estrutura de custos e margens principais.  
+- Estratégia de monetização: [venda direta / assinatura / freemium / licenciamento]
+- Estrutura de custos e margens principais.
 - Potenciais parcerias estratégicas.
 
 ---
@@ -38,16 +38,16 @@ Defina como o produto gera e captura valor.
 Demonstre o tamanho e a atratividade do mercado.
 > Exemplo: “O mercado de IA personalizada cresce 35% ao ano. Estima-se 200 mil empresas potenciais no Brasil.”
 
-- TAM (mercado total endereçável)  
-- SAM (mercado disponível para o produto)  
+- TAM (mercado total endereçável)
+- SAM (mercado disponível para o produto)
 - SOM (mercado alcançável a curto prazo)
 
 ---
 
 ## 5. Estratégia de Go-to-Market
 Descreva como o produto será introduzido e crescerá no mercado.
-- Canais de distribuição e aquisição.  
-- Público inicial (early adopters).  
+- Canais de distribuição e aquisição.
+- Público inicial (early adopters).
 - Estratégias de crescimento (parcerias, comunidades, educação, mídia etc.).
 
 ---
@@ -95,4 +95,3 @@ Feche com uma mensagem inspiradora e estratégica.
 > Exemplo: “Estamos na fronteira entre autonomia tecnológica e inovação acessível. O próximo passo é transformar esse protótipo em um ecossistema vivo.”
 
 ---
-

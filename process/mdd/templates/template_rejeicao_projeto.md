@@ -15,7 +15,7 @@ Esse documento não representa fracasso, mas **aprendizado simbiótico** — ele
 # 🛑 Rejeição de Projeto — [Nome do Projeto]
 
 ## 1. Contexto da Decisão
-Descreva brevemente a jornada até a decisão de rejeição.  
+Descreva brevemente a jornada até a decisão de rejeição.
 > Exemplo: “Após três ciclos de validação, as versões A, B e C não atingiram as métricas mínimas de interesse de mercado.”
 
 ---
@@ -32,17 +32,17 @@ Resuma os resultados que levaram à decisão de encerramento.
 
 ## 3. Motivos da Rejeição
 Liste os fatores determinantes da decisão.
-- Ausência de tração de mercado.  
-- Problema mal definido ou não relevante.  
-- Concorrência mais madura e consolidada.  
-- Custo-benefício desfavorável.  
+- Ausência de tração de mercado.
+- Problema mal definido ou não relevante.
+- Concorrência mais madura e consolidada.
+- Custo-benefício desfavorável.
 
 ---
 
 ## 4. Aprendizados Obtidos
 Registre o que foi aprendido durante o processo.
-- O que o mercado mostrou sobre a hipótese.  
-- O que funcionou e o que não funcionou.  
+- O que o mercado mostrou sobre a hipótese.
+- O que funcionou e o que não funcionou.
 - Que padrões ou comportamentos foram observados.
 
 > Exemplo: “O público se interessa por IA local, mas rejeita soluções complexas de configuração.”
@@ -64,4 +64,3 @@ Registre as pessoas envolvidas e a conclusão formal do ciclo.
 | [Nome 3] | MDD Publisher | Coleta e apresentação de dados. |
 
 > “O encerramento não é o fim do aprendizado, mas a abertura de um novo olhar para o mercado.”
-

@@ -17,7 +17,6 @@ from __future__ import annotations
 import argparse
 import sys
 from pathlib import Path
-from typing import Optional
 
 SCRIPT_DIR = Path(__file__).parent
 UTILS_DIR = SCRIPT_DIR / "utils"
@@ -27,7 +26,7 @@ if str(UTILS_DIR) not in sys.path:
 from helpers import log_export
 
 
-def export_html(input_path: Path, output_path: Optional[Path] = None) -> int:
+def export_html(input_path: Path, output_path: Path | None = None) -> int:
     """Exporta para HTML genérico."""
     from export_html import export_html as _export_html
     try:
@@ -39,7 +38,7 @@ def export_html(input_path: Path, output_path: Optional[Path] = None) -> int:
         return 1
 
 
-def export_pdf(input_path: Path, output_path: Optional[Path] = None) -> int:
+def export_pdf(input_path: Path, output_path: Path | None = None) -> int:
     """Exporta para PDF."""
     from export_pdf import export_pdf as _export_pdf
     try:
@@ -51,7 +50,7 @@ def export_pdf(input_path: Path, output_path: Optional[Path] = None) -> int:
         return 1
 
 
-def export_docx(input_path: Path, output_path: Optional[Path] = None) -> int:
+def export_docx(input_path: Path, output_path: Path | None = None) -> int:
     """Exporta para DOCX."""
     from export_docx import export_docx as _export_docx
     try:
@@ -63,7 +62,7 @@ def export_docx(input_path: Path, output_path: Optional[Path] = None) -> int:
         return 1
 
 
-def export_pitch(input_path: Path, output_path: Optional[Path] = None) -> int:
+def export_pitch(input_path: Path, output_path: Path | None = None) -> int:
     """Exporta pitch deck para HTML estilizado."""
     from export_pitch_html import export_pitch_html
     try:
@@ -76,9 +75,9 @@ def export_pitch(input_path: Path, output_path: Optional[Path] = None) -> int:
 
 
 def export_sites(
-    input_dir: Optional[Path] = None,
-    output_dir: Optional[Path] = None,
-    templates_dir: Optional[Path] = None,
+    input_dir: Path | None = None,
+    output_dir: Path | None = None,
+    templates_dir: Path | None = None,
     strict: bool = False
 ) -> int:
     """Exporta sites A/B/C."""

@@ -2,7 +2,7 @@ import sys
 from pathlib import Path
 
 import pytest
-from pytest_bdd import scenarios, given, when, then
+from pytest_bdd import given, scenarios, then, when
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "src"

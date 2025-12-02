@@ -47,10 +47,10 @@ Execution (backlog técnico pronto + código testado)
   - planning focado em itens claros de backlog,
   - session review (demo + aprovação),
   - acompanhamento de progresso (`progress.md`).
-- Documento de referência:  
+- Documento de referência:
   `process/delivery/sprint/SPRINT_PROCESS.md`
 
-**Pergunta central:**  
+**Pergunta central:**
 > Como organizar o fluxo de entregas em ciclos curtos, previsíveis e bem documentados?
 
 ---
@@ -68,12 +68,12 @@ Execution (backlog técnico pronto + código testado)
     - apresenta incrementos,
     - valida valor de negócio,
     - decide release / ajustes / rollback.
-- Documento de referência:  
+- Documento de referência:
   `process/delivery/review/REVIEW_PROCESS.md`
 
-**Perguntas centrais:**  
-> O que foi entregue está tecnicamente sólido?  
-> Seguiu o processo combinado?  
+**Perguntas centrais:**
+> O que foi entregue está tecnicamente sólido?
+> Seguiu o processo combinado?
 > Entrega valor real para o stakeholder?
 
 ---
@@ -92,7 +92,7 @@ process/
               └── REVIEW_PROCESS.md
 ```
 
-> Este repositório guarda esses arquivos em `processes/forgeprocess/delivery/...`.  
+> Este repositório guarda esses arquivos em `processes/forgeprocess/delivery/...`.
 > Em um projeto alvo, ferramentas como `symforge init -p forgeprocess myproject` deverão
 > copiar esse conteúdo para `process/delivery/` com o layout mostrado acima.
 

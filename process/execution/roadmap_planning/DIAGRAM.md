@@ -1,9 +1,9 @@
 # Resumo do Processo
 
-**ID:** `roadmap_planning`  
-**Versão:** 1.0.0  
-**Título:** Roadmap Planning  
-**Tipo:** Subprocesso  
+**ID:** `roadmap_planning`
+**Versão:** 1.0.0
+**Título:** Roadmap Planning
+**Tipo:** Subprocesso
 
 **Descrição:**
 > Fase de planejamento executivo que transforma features Gherkin em backlog sequencial e executável.
@@ -16,7 +16,7 @@
 
 ## Fluxo
 
-**Total de nós:** 11  
+**Total de nós:** 11
 
 | Tipo | Quantidade |
 |------|------------|

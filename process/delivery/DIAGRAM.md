@@ -1,9 +1,9 @@
 # Resumo do Processo
 
-**ID:** `delivery`  
-**Versão:** 1.0.0  
-**Título:** Delivery - Sprint Management + Review  
-**Tipo:** Subprocesso  
+**ID:** `delivery`
+**Versão:** 1.0.0
+**Título:** Delivery - Sprint Management + Review
+**Tipo:** Subprocesso
 
 **Descrição:**
 > Macro-processo que organiza trabalho em sprints, conduz cerimônias de review e conecta incrementos às entregas.
@@ -23,7 +23,7 @@
 
 ## Fluxo
 
-**Total de nós:** 6  
+**Total de nós:** 6
 
 | Tipo | Quantidade |
 |------|------------|

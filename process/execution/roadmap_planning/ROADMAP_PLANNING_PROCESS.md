@@ -81,8 +81,8 @@ specs/bdd/*.feature      ROADMAP.md + BACKLOG         forge/* código
 
 ## 🗂️ Estrutura de Saída Esperada
 
-> **Estrutura alvo em projetos ForgeProcess**  
-> Os caminhos abaixo representam a organização **esperada** em um projeto real que adota o ForgeProcess.  
+> **Estrutura alvo em projetos ForgeProcess**
+> Os caminhos abaixo representam a organização **esperada** em um projeto real que adota o ForgeProcess.
 > Este repositório não contém `specs/roadmap` nem outros diretórios de código; eles serão criados
 > por ferramentas como `symforge init -p forgeprocess myproject` ou por scaffolding equivalente.
 

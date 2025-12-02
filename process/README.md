@@ -21,7 +21,7 @@ process/                       # Diretório alvo em um projeto que usa o ForgePr
 │   ├── etapa_01-05.md
 │   └── templates/
 │
-├── bdd/                       # Behavior-Driven Development  
+├── bdd/                       # Behavior-Driven Development
 │   ├── BDD_PROCESS.md
 │   ├── etapa_01-06.md
 │   └── templates/
@@ -233,19 +233,19 @@ flowchart TD
 
 ## ❓ FAQ
 
-**P: Qual a diferença entre /process e /specs?**  
+**P: Qual a diferença entre /process e /specs?**
 R: `/process` = **como fazemos** (metodologia), `/specs` = **o que fazemos** (requisitos)
 
-**P: Devo seguir TDD mesmo para features simples?**  
+**P: Devo seguir TDD mesmo para features simples?**
 R: Sim. TDD é obrigatório para todas as features (garantia de qualidade).
 
-**P: O que é "session-based" vs "daily standups"?**  
+**P: O que é "session-based" vs "daily standups"?**
 R: Session-based = trabalho on-demand (2-3h) com review síncrono. Daily standups = trabalho contínuo com sync assíncrono.
 
-**P: Quando usar bill-review symbiota?**  
+**P: Quando usar bill-review symbiota?**
 R: Após cada feature complexa (>5 pts) e ao final de cada sprint (obrigatório).
 
-**P: Posso pular MDD e ir direto para TDD?**  
+**P: Posso pular MDD e ir direto para TDD?**
 R: Não recomendado. MDD evita desperdício construindo features que ninguém quer.
 
 ---
@@ -259,6 +259,6 @@ R: Não recomendado. MDD evita desperdício construindo features que ninguém qu
 
 ---
 
-**Última Atualização**: 2025-11-05  
-**Status**: Em evolução (Sprint 1 em andamento)  
+**Última Atualização**: 2025-11-05
+**Status**: Em evolução (Sprint 1 em andamento)
 **Manutenção**: Atualizar após cada sprint review

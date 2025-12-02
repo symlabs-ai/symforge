@@ -2,9 +2,9 @@
 
 **Subprocesso do Delivery Process – como organizar o trabalho em sprints e sessões.**
 
-**Project (exemplo)**: forgeLLMClient  
-**Team**: Agent Coders (Claude Code primary)  
-**Last Updated**: 2025-11-07  
+**Project (exemplo)**: forgeLLMClient
+**Team**: Agent Coders (Claude Code primary)
+**Last Updated**: 2025-11-07
 **Methodology**: Session-based sprints (não daily standups)
 
 **⚠️ MANDATORY**: See `process/delivery/sprint/ceremonies/CEREMONY_SCHEDULE.md` for REQUIRED sprint ceremonies
@@ -383,6 +383,6 @@ Se sprint não atinge critérios de sucesso:
 
 ---
 
-**Last Updated**: 2025-11-05  
-**Status**: Sprint 1 em andamento  
+**Last Updated**: 2025-11-05
+**Status**: Sprint 1 em andamento
 **Next Sprint Planning**: Após conclusão Sprint 1

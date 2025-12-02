@@ -9,6 +9,9 @@ ignore = [
   "E501",
 ]
 
+[lint.per-file-ignores]
+"process/symbiotes/mdd_publisher/scripts/*.py" = ["E402", "RET", "SIM105", "N817", "F821"]
+"tests/bdd/*.py" = ["E402"]
 [format]
 quote-style = "double"
 indent-style = "space"

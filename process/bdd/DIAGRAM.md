@@ -1,9 +1,9 @@
 # Resumo do Processo
 
-**ID:** `bdd`  
-**Versão:** 1.0.0  
-**Título:** BDD - Behavior Driven Development  
-**Tipo:** Subprocesso  
+**ID:** `bdd`
+**Versão:** 1.0.0
+**Título:** BDD - Behavior Driven Development
+**Tipo:** Subprocesso
 
 **Descrição:**
 > Processo que transforma valor validado (MDD) em especificação executável (Gherkin), estabelecendo um contrato de comportamento entre stakeholders, produto, desenvolvimento e QA.
@@ -16,7 +16,7 @@
 
 ## Fluxo
 
-**Total de nós:** 10  
+**Total de nós:** 10
 
 | Tipo | Quantidade |
 |------|------------|

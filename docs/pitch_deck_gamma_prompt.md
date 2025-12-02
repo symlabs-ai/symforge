@@ -17,11 +17,11 @@ Slide 3 — Solução e Diferencial
 - Symbiotas com front-matter; auto-commit configurável; plugins (send/export/hook/generate) para enviar/transformar artefatos e gerar conteúdos.
 - Proteção de loops/inputs para execuções seguras em qualquer processo.
 - Benefícios para usuários:
-  1) Processos em linguagem natural, sem notações complexas.  
-  2) Voltar atrás com rollback seguro a cada passo versionado.  
-  3) Symbiotas 24x7 (agentes que aprendem) que só pedem aprovação nos pontos críticos.  
-  4) Plugins sem código para e-mail/WhatsApp/exportações, com BYO e marketplace.  
-  5) Diagramas automáticos sempre atualizados.  
+  1) Processos em linguagem natural, sem notações complexas.
+  2) Voltar atrás com rollback seguro a cada passo versionado.
+  3) Symbiotas 24x7 (agentes que aprendem) que só pedem aprovação nos pontos críticos.
+  4) Plugins sem código para e-mail/WhatsApp/exportações, com BYO e marketplace.
+  5) Diagramas automáticos sempre atualizados.
   6) Composição fácil de novos processos em qualquer área.
 
 Slide 4 — Modelo de Negócio

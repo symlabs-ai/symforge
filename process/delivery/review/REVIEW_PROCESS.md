@@ -2,9 +2,9 @@
 
 **Subprocesso do Delivery Process – validação técnica, de processo e de negócio.**
 
-**Project (exemplo)**: forgeLLMClient  
-**Team**: Agent Coders (Claude Code primary)  
-**Last Updated**: 2025-11-06  
+**Project (exemplo)**: forgeLLMClient
+**Team**: Agent Coders (Claude Code primary)
+**Last Updated**: 2025-11-06
 **Methodology**: bill-review (technical) + Jorge the Forge (process) + stakeholder review
 
 ---
@@ -142,8 +142,8 @@ Template de `project/sprints/sprint-N/review.md`:
 ```markdown
 # Sprint N Review
 
-**Data**: YYYY-MM-DD  
-**Reviewer**: bill-review agent + [Nome Stakeholder]  
+**Data**: YYYY-MM-DD
+**Reviewer**: bill-review agent + [Nome Stakeholder]
 **Status**: ✅ APROVADO / 🔄 CONDICIONAL / ❌ REJEITADO
 
 ## Features Completadas
@@ -197,7 +197,7 @@ Template de `project/sprints/sprint-N/review.md`:
 1. Criar issues para problemas importantes
 2. Adicionar edge cases na Sprint N+1
 
-**Aprovado por**: [Nome Stakeholder]  
+**Aprovado por**: [Nome Stakeholder]
 **Data**: YYYY-MM-DD
 ```
 

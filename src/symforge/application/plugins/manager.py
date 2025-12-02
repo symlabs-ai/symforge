@@ -1,7 +1,7 @@
 import importlib.util
 import shutil
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 import yaml
 
@@ -33,8 +33,8 @@ class PluginManager:
             shutil.rmtree(target)
         shutil.copytree(repo_path, target)
 
-    def list_plugins(self) -> List[Dict[str, Any]]:
-        plugins: List[Dict[str, Any]] = []
+    def list_plugins(self) -> list[dict[str, Any]]:
+        plugins: list[dict[str, Any]] = []
         for entry in self.plugins_root.iterdir():
             if not entry.is_dir():
                 continue
@@ -51,7 +51,7 @@ class PluginManager:
             )
         return plugins
 
-    def execute_send(self, plugin_id: str, payload: Dict[str, Any]) -> Any:
+    def execute_send(self, plugin_id: str, payload: dict[str, Any]) -> Any:
         manifest, module = self._load_plugin(plugin_id)
         if manifest["type"] != "send":
             raise ValueError("Plugin não é do tipo send")
@@ -67,10 +67,10 @@ class PluginManager:
             return func(input_path, output_path=output_path)
         return func(input_path)
 
-    def _load_manifest(self, manifest_path: Path) -> Dict[str, Any]:
+    def _load_manifest(self, manifest_path: Path) -> dict[str, Any]:
         return yaml.safe_load(manifest_path.read_text(encoding="utf-8")) or {}
 
-    def _validate_manifest(self, manifest: Dict[str, Any]) -> None:
+    def _validate_manifest(self, manifest: dict[str, Any]) -> None:
         required = ["id", "name", "version", "type", "entrypoint"]
         for key in required:
             if not manifest.get(key):
@@ -80,7 +80,7 @@ class PluginManager:
         if ":" not in manifest["entrypoint"]:
             raise ValueError("Entrypoint deve ser no formato module:function")
 
-    def _load_plugin(self, plugin_id: str) -> tuple[Dict[str, Any], Any]:
+    def _load_plugin(self, plugin_id: str) -> tuple[dict[str, Any], Any]:
         plugin_dir = self.plugins_root / plugin_id
         manifest_path = plugin_dir / "plugin.yml"
         code_path = plugin_dir / "plugin.py"
@@ -99,7 +99,7 @@ class PluginManager:
         spec.loader.exec_module(module)
         return module
 
-    def _resolve_entrypoint(self, manifest: Dict[str, Any], module: Any):
+    def _resolve_entrypoint(self, manifest: dict[str, Any], module: Any):
         entry = manifest["entrypoint"]
         mod_name, func_name = entry.split(":", 1)
         if mod_name != "plugin":

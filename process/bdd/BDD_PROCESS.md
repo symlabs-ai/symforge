@@ -73,8 +73,8 @@ MDD (Valor Validado) → BDD (Comportamento Especificado) → TDD (Código Testa
 
 ## 🗂️ Estrutura de Saída Esperada
 
-> **Estrutura alvo em projetos ForgeProcess**  
-> Os caminhos abaixo descrevem **como um projeto que adota o ForgeProcess deve ser organizado**.  
+> **Estrutura alvo em projetos ForgeProcess**
+> Os caminhos abaixo descrevem **como um projeto que adota o ForgeProcess deve ser organizado**.
 > Este repositório não contém essas pastas finais (`specs/`, `tests/` etc.); elas serão criadas em um
 > projeto real (por exemplo, via `symforge init -p forgeprocess myproject`).
 

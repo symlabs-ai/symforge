@@ -63,7 +63,6 @@ tracks:
       - specs/bdd/10_forge_core/sessao.feature
     notes: "Habilita chat multi-turn. Crítico para VALUE tracks avançados."
 
----
 
 # GUIA DE PREENCHIMENTO
 
@@ -105,7 +104,6 @@ tracks:
 #   - Por que este track é importante?
 #   - Como se relaciona com outros tracks?
 
----
 
 # EXEMPLOS DE MÉTRICAS
 
@@ -124,7 +122,6 @@ tracks:
 #   - taxa_erro: % requisições com erro
 #   - taxa_fallback: % casos usando fallback (meta: < 5%)
 
----
 
 # RASTREABILIDADE
 
@@ -142,7 +139,6 @@ tracks:
 # 4. Para validar sintaxe:
 #    $ yq eval tracks.yml
 
----
 
 # VALIDAÇÃO
 

@@ -5,11 +5,11 @@
 - **Resultado esperado**: Usuários adotam processos versionáveis (YAML/Markdown), os executam via CLI/TUI, coletam evidências de valor (artefatos, métricas) e mantêm handoffs consistentes.
 - **Pilares**: Processos como código (`PROCESS.yml` + Markdown), execução guiada por fluxo e checkpoints, decisões Human-in-the-Loop (HIL), publicação e validação automatizadas.
 - **Benefícios para usuários**:
-  1) Processos em linguagem natural: o fluxo é descrito como se fala com a equipe, sem notações complexas, e o Symforge traduz em execução organizada.  
-  2) Voltar atrás sem medo: cada passo fica versionado, com histórico de decisões e artefatos, permitindo rollback seguro e recuperação rápida.  
-  3) Symbiotas 24x7: agentes acompanham o processo, aprendem com o contexto e pedem aprovação apenas nos pontos críticos.  
-  4) Plugins sem código: integrações (e-mail, WhatsApp, exportações) são criadas ou ajustadas pelo usuário usando modelos simples, sem programar.  
-  5) Diagramas sob demanda: visões automáticas e sempre atualizadas facilitam entendimento, alinhamento e apresentação para stakeholders.  
+  1) Processos em linguagem natural: o fluxo é descrito como se fala com a equipe, sem notações complexas, e o Symforge traduz em execução organizada.
+  2) Voltar atrás sem medo: cada passo fica versionado, com histórico de decisões e artefatos, permitindo rollback seguro e recuperação rápida.
+  3) Symbiotas 24x7: agentes acompanham o processo, aprendem com o contexto e pedem aprovação apenas nos pontos críticos.
+  4) Plugins sem código: integrações (e-mail, WhatsApp, exportações) são criadas ou ajustadas pelo usuário usando modelos simples, sem programar.
+  5) Diagramas sob demanda: visões automáticas e sempre atualizadas facilitam entendimento, alinhamento e apresentação para stakeholders.
   6) Composição fácil de novos processos: em qualquer área, combinam-se blocos e templates em linguagem natural para criar e adaptar fluxos rápido, sem depender de ferramentas diferentes ou time técnico.
 
 ## 2. Escopo
@@ -92,11 +92,11 @@
 
 ### 5.3 Engine de Execução
 - **FlowGraph + FlowInterpreter**: lê `PROCESS.yml`, executa nodes (start, step, decision, call subprocess, end), gerencia stack de subprocessos.
-- **Estados de sessão**: `RUNNING`, `PROCESSING`, `AWAITING_DECISION`, `AWAITING_INPUT`, `PAUSED`, `COMPLETED`, `FAILED`, `CANCELLED` (definidos em `docs/SESSION_STATES.md`). fonte da verdade 
+- **Estados de sessão**: `RUNNING`, `PROCESSING`, `AWAITING_DECISION`, `AWAITING_INPUT`, `PAUSED`, `COMPLETED`, `FAILED`, `CANCELLED` (definidos em `docs/SESSION_STATES.md`). fonte da verdade
 - **Loop protection**: limite de iterações e visitas por nó (para evitar loops).
 - **Validação de inputs/outputs**: bloqueia execução e aponta arquivos faltantes.
 - **Symbiota integration**: steps podem invocar prompts; decisões podem ser HIL ou por symbiota (quando permitido).
-- **Auto-commit**: registros git por step ou final de phase. Imprescindivel para o controle de versão com rollback 
+- **Auto-commit**: registros git por step ou final de phase. Imprescindivel para o controle de versão com rollback
 
 #### 5.3.1 Sistema de Estados de Sessão (Resumo de docs/SESSION_STATES.md)
 - **Governança**: A CLI é a única fonte de transições; a TUI apenas reflete estado, dispara comandos e mostra ações válidas (nunca altera arquivos/estado diretamente).
@@ -129,7 +129,7 @@
 ### 5.7 Symbiotas e Prompts
 - Symbiotas padrão (ForgeProcess): `mdd_coach`, `mdd_publisher`, `bill_review`, `jorge_forge`, `orchestrator`.
 - Prompts reutilizáveis para handoff/handon (`prompts/handoff.md`, `prompts/handon.md`) e conversão MD → YAML (`prompts/process_to_yaml.md`).
-- Suporte a provedores (Codex, Claude, Gemini) configurados em ; `.symforge/config.yml` 
+- Suporte a provedores (Codex, Claude, Gemini) configurados em ; `.symforge/config.yml`
 
 ### 5.8 Plugins
 - Manifestos em `plugins/<nome>/plugin.yml` definem tipo (`send|export|hook|generate`), entrypoint/comando e permissões (rede/arquivos).

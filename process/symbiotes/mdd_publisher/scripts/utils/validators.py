@@ -9,11 +9,9 @@ from __future__ import annotations
 
 import re
 from pathlib import Path
-from typing import List, Dict
-
 
 # Schemas de validação: seções obrigatórias por tipo de artefato
-REQUIRED_SECTIONS: Dict[str, List[str]] = {
+REQUIRED_SECTIONS: dict[str, list[str]] = {
     'hipotese.md': [
         r'^#\s+Hip[óo]tese',
         r'^##\s+Problema',
@@ -47,7 +45,7 @@ class ValidationError(Exception):
     pass
 
 
-def validate_artifact(md_path: Path, strict: bool = False) -> List[str]:
+def validate_artifact(md_path: Path, strict: bool = False) -> list[str]:
     """
     Valida se um artefato Markdown segue o schema esperado.
 
@@ -66,7 +64,7 @@ def validate_artifact(md_path: Path, strict: bool = False) -> List[str]:
         raise FileNotFoundError(f"Arquivo não encontrado: {md_path}")
 
     text = md_path.read_text(encoding='utf-8')
-    errors: List[str] = []
+    errors: list[str] = []
 
     # Obtém schema esperado para este tipo de arquivo
     required_patterns = REQUIRED_SECTIONS.get(md_path.name, [])
@@ -89,7 +87,7 @@ def validate_artifact(md_path: Path, strict: bool = False) -> List[str]:
     return errors
 
 
-def validate_all_artifacts(docs_dir: Path, strict: bool = False) -> Dict[str, List[str]]:
+def validate_all_artifacts(docs_dir: Path, strict: bool = False) -> dict[str, list[str]]:
     """
     Valida todos os artefatos em um diretório.
 
@@ -100,7 +98,7 @@ def validate_all_artifacts(docs_dir: Path, strict: bool = False) -> Dict[str, Li
     Returns:
         Dicionário {nome_arquivo: [erros]}
     """
-    results: Dict[str, List[str]] = {}
+    results: dict[str, list[str]] = {}
 
     for md_file in docs_dir.glob('*.md'):
         if md_file.name in REQUIRED_SECTIONS:

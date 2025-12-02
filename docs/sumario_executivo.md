@@ -10,11 +10,11 @@ Organizações executam processos críticos (produto, editorial, operação, com
 - Solução: Symforge oferece processos como código (YAML/Markdown) com templates multi-domínio, runtime CLI/TUI que guia sessões, valida artefatos, gera diagramas e registra decisões/hand-offs versionados, além de uma arquitetura de plugins (send/export/hook/generate) para adicionar integrações e transformações sem quebrar governança.
 
 **Benefícios para usuários (não técnicos):**
-1) Descrever processos em linguagem natural e ver a execução organizada.  
-2) Voltar atrás com segurança: cada passo é versionado e rastreável.  
-3) Symbiotas (*agentes que aprendem*) 24x7 que executam e pedem aprovação só nos pontos críticos.  
-4) Plugins sem código para enviar/transformar artefatos (e-mail, WhatsApp, CSV/Excel).  
-5) Diagramas automáticos mantêm comunicação alinhada.  
+1) Descrever processos em linguagem natural e ver a execução organizada.
+2) Voltar atrás com segurança: cada passo é versionado e rastreável.
+3) Symbiotas (*agentes que aprendem*) 24x7 que executam e pedem aprovação só nos pontos críticos.
+4) Plugins sem código para enviar/transformar artefatos (e-mail, WhatsApp, CSV/Excel).
+5) Diagramas automáticos mantêm comunicação alinhada.
 6) Compor novos processos em qualquer área reaproveitando blocos/templates.
 
 ---

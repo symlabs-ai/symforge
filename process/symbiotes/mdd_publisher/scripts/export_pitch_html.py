@@ -10,8 +10,8 @@ Uso:
 from __future__ import annotations
 
 import argparse
-from pathlib import Path
 import sys
+from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
 UTILS_DIR = SCRIPT_DIR / "utils"
@@ -19,13 +19,12 @@ if str(UTILS_DIR) not in sys.path:
     sys.path.insert(0, str(UTILS_DIR))
 
 from helpers import (
-    read_text,
-    write_text,
     log_export,
     md_to_html_basic,
+    read_text,
     wrap_html,
+    write_text,
 )
-
 
 PITCH_CSS = """
 /* Estilos básicos focados em apresentação de pitch */
@@ -71,4 +70,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

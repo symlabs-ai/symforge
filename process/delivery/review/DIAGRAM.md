@@ -1,9 +1,9 @@
 # Resumo do Processo
 
-**ID:** `review`  
-**Versão:** 1.0.0  
-**Título:** Review & Feedback  
-**Tipo:** Subprocesso  
+**ID:** `review`
+**Versão:** 1.0.0
+**Título:** Review & Feedback
+**Tipo:** Subprocesso
 
 **Descrição:**
 > Validação técnica, de processo e de negócio antes de consolidar a entrega. Inclui bill-review (técnico), Jorge the Forge (processo) e Stakeholder Review.
@@ -16,7 +16,7 @@
 
 ## Fluxo
 
-**Total de nós:** 10  
+**Total de nós:** 10
 
 | Tipo | Quantidade |
 |------|------------|

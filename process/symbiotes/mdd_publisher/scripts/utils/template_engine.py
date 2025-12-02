@@ -10,10 +10,9 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
-from typing import Dict, Optional
 
 
-def extract_frontmatter(md_content: str) -> Dict[str, str]:
+def extract_frontmatter(md_content: str) -> dict[str, str]:
     """
     Extrai YAML front matter de arquivo Markdown.
 
@@ -36,7 +35,7 @@ def extract_frontmatter(md_content: str) -> Dict[str, str]:
         return {}
 
     yaml_content = match.group(1)
-    variables: Dict[str, str] = {}
+    variables: dict[str, str] = {}
 
     # Parser YAML simples (apenas key: value)
     for line in yaml_content.split('\n'):
@@ -48,7 +47,7 @@ def extract_frontmatter(md_content: str) -> Dict[str, str]:
     return variables
 
 
-def extract_from_markdown(md_content: str) -> Dict[str, str]:
+def extract_from_markdown(md_content: str) -> dict[str, str]:
     """
     Extrai variáveis automaticamente do Markdown baseado em padrões.
 
@@ -63,7 +62,7 @@ def extract_from_markdown(md_content: str) -> Dict[str, str]:
     Returns:
         Dicionário de variáveis inferidas
     """
-    variables: Dict[str, str] = {}
+    variables: dict[str, str] = {}
     lines = md_content.split('\n')
 
     # Extrai título principal (primeiro H1)
@@ -95,7 +94,7 @@ def extract_from_markdown(md_content: str) -> Dict[str, str]:
     return variables
 
 
-def apply_template(template_path: Path, variables: Dict[str, str], strict: bool = False) -> str:
+def apply_template(template_path: Path, variables: dict[str, str], strict: bool = False) -> str:
     """
     Aplica variáveis a um template HTML.
 
@@ -137,7 +136,7 @@ def apply_template(template_path: Path, variables: Dict[str, str], strict: bool 
     return template_html
 
 
-def load_template_config(template_dir: Path) -> Optional[Dict]:
+def load_template_config(template_dir: Path) -> dict | None:
     """
     Carrega configuração do template (config.json).
 
@@ -161,7 +160,7 @@ def render_site(
     md_path: Path,
     template_dir: Path,
     output_path: Path,
-    extra_vars: Optional[Dict[str, str]] = None,
+    extra_vars: dict[str, str] | None = None,
     strict: bool = False
 ) -> Path:
     """
@@ -194,7 +193,7 @@ def render_site(
     md_content = md_path.read_text(encoding='utf-8')
 
     # Extrai variáveis de múltiplas fontes
-    variables: Dict[str, str] = {}
+    variables: dict[str, str] = {}
 
     # 1. Front matter (prioridade alta)
     variables.update(extract_frontmatter(md_content))

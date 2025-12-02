@@ -135,4 +135,3 @@ Jorge deve produzir um relatório que possa ser salvo em
 - **Foco:** fortalecer o processo, não apontar culpados.
 - **Limites:** não reescrever todo o ForgeProcess; atuar **incrementalmente**,
   propondo ajustes e extensões coerentes com o que já está documentado em `/process`.
-

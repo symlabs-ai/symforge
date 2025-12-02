@@ -1,10 +1,8 @@
-import os
+import logging
 import re
 import sys
-from datetime import datetime
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
-import logging
 
 
 # Exceções customizadas

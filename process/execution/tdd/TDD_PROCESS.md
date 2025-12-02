@@ -2,9 +2,9 @@
 
 **Subprocesso do Execution Process – implementação guiada por testes.**
 
-**Project (exemplo)**: forgeLLMClient (SymClient + Forge SDK)  
-**Team**: Agent Coders (Claude Code primary)  
-**Last Updated**: 2025-11-05  
+**Project (exemplo)**: forgeLLMClient (SymClient + Forge SDK)
+**Team**: Agent Coders (Claude Code primary)
+**Last Updated**: 2025-11-05
 **Methodology**: BDD → TDD (Behavior-Driven Development → Test-Driven Development)
 
 ---

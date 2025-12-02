@@ -87,14 +87,14 @@ Intenção (Valor) → Comportamento → Prova → Execução → Aprendizado �
 
 O ForgeProcess opera em **fases integradas**, cada uma representando um nível de refinamento do pensamento.
 
-> **Nota Importante sobre estrutura:**  
-> - Este repositório contém apenas a **documentação padrão** do ForgeProcess, em `processes/forgeprocess/...`.  
-> - Referências a `process/...`, `specs/...` e `project/...` descrevem a **estrutura alvo** de um projeto que adota o ForgeProcess (por exemplo, criada via `symforge init -p forgeprocess myproject`).  
+> **Nota Importante sobre estrutura:**
+> - Este repositório contém apenas a **documentação padrão** do ForgeProcess, em `processes/forgeprocess/...`.
+> - Referências a `process/...`, `specs/...` e `project/...` descrevem a **estrutura alvo** de um projeto que adota o ForgeProcess (por exemplo, criada via `symforge init -p forgeprocess myproject`).
 > - MDD e BDD são **processos independentes e detalhados**:
->   - **MDD Process**: `process/mdd/MDD_process.md` (6 etapas)  
+>   - **MDD Process**: `process/mdd/MDD_process.md` (6 etapas)
 >   - **BDD Process**: `process/bdd/BDD_PROCESS.md` (6 subetapas)
 > - Execution e Delivery são macro‑processos complementares:
->   - **Execution**: `process/execution/PROCESS.md` (Roadmap Planning + TDD)  
+>   - **Execution**: `process/execution/PROCESS.md` (Roadmap Planning + TDD)
 >   - **Delivery**: `process/delivery/PROCESS.md` (Sprints + Review & Feedback)
 > - A estrutura completa de pastas alvo está descrita em:
 >   - **Project Layout**: `process/docs/layout/PROJECT_LAYOUT.md`

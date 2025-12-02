@@ -13,10 +13,10 @@
 - Nada a declarar
 
 ## 5. Próximos Passos e Donos
-- [ ] 
-- [ ] Lançar/ajustar plugins prioritários (Email e Gamma).  
-- [ ] 
-- [ ] 
+- [ ]
+- [ ] Lançar/ajustar plugins prioritários (Email e Gamma).
+- [ ]
+- [ ]
 
 ---
 

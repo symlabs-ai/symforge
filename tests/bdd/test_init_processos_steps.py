@@ -2,14 +2,14 @@ import sys
 from pathlib import Path
 
 import pytest
-from pytest_bdd import scenarios, given, when, then
+from pytest_bdd import given, scenarios, then, when
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.append(str(SRC))
 
-from symforge.application.usecases.init_process import init_process, REQUIRED_PATHS
+from symforge.application.usecases.init_process import REQUIRED_PATHS, init_process
 
 scenarios("../../specs/bdd/10_forge_core/init_processos.feature")
 

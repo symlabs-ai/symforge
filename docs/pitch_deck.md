@@ -14,11 +14,11 @@ Processos críticos — técnicos ou de negócio — estão dispersos em wikis, 
 Symforge oferece processos como código (YAML/Markdown) com templates oficiais para múltiplos domínios, runtime CLI/TUI que guia sessões, valida artefatos e gera diagramas; symbiotas com front-matter para coaching/revisão/publicação; sessões e handoffs versionados com auto-commit configurável; arquitetura de plugins (send/export/hook/generate) para enviar/transformar artefatos e gerar conteúdos; proteção de loops/inputs para execuções seguras em qualquer processo.
 
 Benefícios para usuários:
-1) Processos em linguagem natural: descreve como fala com a equipe, sem notações complexas.  
-2) Voltar atrás sem medo: cada passo versionado permite rollback seguro.  
-3) Symbiotas 24x7 (agentes que aprendem): acompanham, executam e só pedem aprovação nos pontos críticos.  
-4) Plugins sem código: integrações (e-mail, WhatsApp, exportações) criadas/ajustadas pelo usuário sem programar, com espaço para BYO e marketplace.  
-5) Diagramas sob demanda: visões automáticas mantêm entendimento e alinhamento.  
+1) Processos em linguagem natural: descreve como fala com a equipe, sem notações complexas.
+2) Voltar atrás sem medo: cada passo versionado permite rollback seguro.
+3) Symbiotas 24x7 (agentes que aprendem): acompanham, executam e só pedem aprovação nos pontos críticos.
+4) Plugins sem código: integrações (e-mail, WhatsApp, exportações) criadas/ajustadas pelo usuário sem programar, com espaço para BYO e marketplace.
+5) Diagramas sob demanda: visões automáticas mantêm entendimento e alinhamento.
 6) Composição fácil de novos processos em qualquer área, combinando blocos/templates em linguagem natural.
 
 ---
@@ -29,10 +29,10 @@ Versão free para estudantes e micro (até 10 usuários); assinatura por workspa
 ---
 
 ## Bloco 5 — Roadmap e Validação
-- V1: ForgeProcess + CLI básica (`init`, `validate`, `diagram`, `start`) com sessões versionadas.  
-- V2: Runtime completo com TUI opcional, proteção de loops/inputs e auto-commit por step/fase, cobrindo processos não técnicos (BookForge/OpsForge).  
-- V3: Observabilidade (logs, métricas), handoffs enriquecidos e plugins `produce` para múltiplos domínios.  
-- V4: Ecossistema multi-processo (BookForge, BizForge, OpsForge...) e dashboard web opcional.  
+- V1: ForgeProcess + CLI básica (`init`, `validate`, `diagram`, `start`) com sessões versionadas.
+- V2: Runtime completo com TUI opcional, proteção de loops/inputs e auto-commit por step/fase, cobrindo processos não técnicos (BookForge/OpsForge).
+- V3: Observabilidade (logs, métricas), handoffs enriquecidos e plugins `produce` para múltiplos domínios.
+- V4: Ecossistema multi-processo (BookForge, BizForge, OpsForge...) e dashboard web opcional.
 - Sinal de validação inicial: 5 projetos em ≥3 domínios diferentes com ≥10 sessões cada, ≥80% das validações sem erro, handoff/handon reabertos e ≥1 geração de artefato via `produce`.
 
 ---
@@ -42,4 +42,4 @@ CTA: experimente iniciar um projeto com `symforge init -p forgeprocess <nome>` o
 
 ---
 
-*Documento gerado pelo symbiota MDD Coach a partir de `docs/vision.md`.* 
+*Documento gerado pelo symbiota MDD Coach a partir de `docs/vision.md`.*

@@ -13,8 +13,8 @@ de `project/docs/` e trocando a extensão para .html.
 from __future__ import annotations
 
 import argparse
-from pathlib import Path
 import sys
+from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
 UTILS_DIR = SCRIPT_DIR / "utils"
@@ -22,13 +22,13 @@ if str(UTILS_DIR) not in sys.path:
     sys.path.insert(0, str(UTILS_DIR))
 
 from helpers import (
-    read_text,
-    write_text,
+    ExportError,
+    default_output_for_md,
     log_export,
     md_to_html_basic,
+    read_text,
     wrap_html,
-    default_output_for_md,
-    ExportError,
+    write_text,
 )
 
 # Importa configuração centralizada
@@ -87,4 +87,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

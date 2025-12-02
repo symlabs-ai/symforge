@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List, Optional
 
 from symforge.domain.process_definition import ProcessDefinition
 from symforge.domain.session import Session
@@ -42,8 +41,8 @@ class RuntimeUseCases:
         self.repo.update(session)
         return session
 
-    def _missing_artifacts(self, required: List[str], workspace: Path) -> List[str]:
-        missing: List[str] = []
+    def _missing_artifacts(self, required: list[str], workspace: Path) -> list[str]:
+        missing: list[str] = []
         for rel in required:
             path = workspace / rel
             if not path.exists():

@@ -15,13 +15,13 @@ Seu objetivo é comunicar o valor do produto de forma clara, emocional e inspira
 # 🎤 Pitch de Valor — [Nome do Produto]
 
 ## 🧠 1. A Ideia Central
-Apresente o propósito em uma frase poderosa.  
+Apresente o propósito em uma frase poderosa.
 > Exemplo: “Transformamos dados em decisões autônomas — de forma ética, segura e local.”
 
 ---
 
 ## 🎯 2. O Problema
-Descreva de forma breve e empática o problema que o produto resolve.  
+Descreva de forma breve e empática o problema que o produto resolve.
 Use o mínimo de texto possível — foque em clareza e impacto.
 
 > Exemplo: “Empresas dependem de IAs externas e perdem controle sobre seus dados.”
@@ -30,8 +30,8 @@ Use o mínimo de texto possível — foque em clareza e impacto.
 
 ## 💡 3. A Solução
 Apresente o produto e sua proposta de valor de forma inspiradora.
-- O que ele faz de diferente.  
-- Por que ele importa agora.  
+- O que ele faz de diferente.
+- Por que ele importa agora.
 - Que transformação ele gera.
 
 > Exemplo: “Nossa IA local devolve o controle da tecnologia para as empresas.”
@@ -50,22 +50,22 @@ Mostre, de maneira simplificada, como a solução entrega valor.
 ---
 
 ## 🚀 5. Oportunidade de Mercado
-Destaque dados e tendências de mercado que sustentam a ideia.  
+Destaque dados e tendências de mercado que sustentam a ideia.
 > Exemplo: “O mercado global de IAs locais deve movimentar US$ 10 bilhões até 2026.”
 
-- Tamanho de mercado (TAM, SAM, SOM).  
-- Tendências e gatilhos de adoção.  
+- Tamanho de mercado (TAM, SAM, SOM).
+- Tendências e gatilhos de adoção.
 - Mudanças de comportamento do público.
 
 ---
 
 ## 🧩 6. Diferenciais Competitivos
-Liste os fatores que tornam o produto único.  
+Liste os fatores que tornam o produto único.
 > Exemplo: “Foco em IA embarcada, privacidade e integração com ERPs locais.”
 
-✅ Fácil de integrar.  
-🔒 Total controle de dados.  
-⚙️ Baixo custo de operação.  
+✅ Fácil de integrar.
+🔒 Total controle de dados.
+⚙️ Baixo custo de operação.
 
 ---
 
@@ -84,8 +84,8 @@ Apresente os marcos de desenvolvimento e crescimento.
 Mostre de forma direta como o produto gera receita.
 > Exemplo: “Assinatura mensal de R$ 499 com suporte técnico e atualizações automáticas.”
 
-- Fontes de receita.  
-- Estratégia de precificação.  
+- Fontes de receita.
+- Estratégia de precificação.
 - Margem estimada e sustentabilidade.
 
 ---
@@ -101,7 +101,7 @@ Apresente brevemente as pessoas-chave.
 
 ## 🎯 10. Chamada à Ação (CTA)
 Finalize com um convite inspirador e um caminho claro.
-> Exemplo: “Quer fazer parte dessa revolução?  
+> Exemplo: “Quer fazer parte dessa revolução?
 > [Agende uma demonstração](#) ou entre em contato conosco.”
 
 ---

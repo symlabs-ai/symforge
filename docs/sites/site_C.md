@@ -8,8 +8,8 @@ _Construa, compartilhe e rode processos em linguagem natural com symbiotas, roll
 ## 🎯 Contexto / Problema
 Equipes reinventam playbooks e integrações do zero. Falta um lugar seguro para compartilhar processos, aprender com outros domínios e instalar plugins (envios/exports) sem depender de time técnico.
 
-- Conhecimento preso em wikis dispersas.  
-- Dificuldade de provar que o processo foi seguido e por quem.  
+- Conhecimento preso em wikis dispersas.
+- Dificuldade de provar que o processo foi seguido e por quem.
 - Integrações ad-hoc com risco de quebra e retrabalho.
 
 ---
@@ -17,8 +17,8 @@ Equipes reinventam playbooks e integrações do zero. Falta um lugar seguro para
 ## 💡 Solução / Proposta
 Symforge cria um ecossistema de processos e plugins no-code: você instala, adapta e publica fluxos com symbiotas e HIL; acopla plugins de envio/export/hook/generate; e mantém rastreabilidade e rollback em Git.
 
-- Biblioteca multi-processo (ForgeProcess, BookForge, OpsForge, etc.) para começar rápido.  
-- Symbiotas 24x7 que guiam e aprendem, mantendo checkpoints humanos.  
+- Biblioteca multi-processo (ForgeProcess, BookForge, OpsForge, etc.) para começar rápido.
+- Symbiotas 24x7 que guiam e aprendem, mantendo checkpoints humanos.
 - Marketplace e BYO plugins para e-mail, WhatsApp, CSV/Excel e geração de materiais.
 
 ---
@@ -33,25 +33,25 @@ Symforge cria um ecossistema de processos e plugins no-code: você instala, adap
 ---
 
 ## 🌟 Benefícios e Diferenciais
-✅ Comunidade e marketplace: instale e publique processos/plugins sem código.  
-♻️ Rollback seguro: histórico completo de decisões e artefatos.  
-🤖 Symbiotas 24x7 com HIL para manter controle humano.  
-🔌 Plugins sem código (send/export/hook/generate) para encaixar qualquer canal/formatos.  
+✅ Comunidade e marketplace: instale e publique processos/plugins sem código.
+♻️ Rollback seguro: histórico completo de decisões e artefatos.
+🤖 Symbiotas 24x7 com HIL para manter controle humano.
+🔌 Plugins sem código (send/export/hook/generate) para encaixar qualquer canal/formatos.
 🗺️ Diagramas automáticos para mostrar o fluxo a qualquer stakeholder.
 
 ---
 
 ## 🧭 Casos de Uso
-**Comunidades de prática:** compartilhar e adaptar playbooks com rastreabilidade.  
-**Times regulados:** garantir provas de execução e integrações auditáveis.  
-**Conteúdo e pesquisa:** montar e distribuir pipelines com exports e envios automáticos.  
+**Comunidades de prática:** compartilhar e adaptar playbooks com rastreabilidade.
+**Times regulados:** garantir provas de execução e integrações auditáveis.
+**Conteúdo e pesquisa:** montar e distribuir pipelines com exports e envios automáticos.
 
 ---
 
 ## 🗺️ Roadmap e Próximos Passos
-1. **V1:** biblioteca oficial + CLI básica com sessões versionadas.  
-2. **V2:** TUI opcional, plugins no-code e auto-commit por fase.  
-3. **V3:** marketplace de processos/plugins, observabilidade e dashboard web opcional.  
+1. **V1:** biblioteca oficial + CLI básica com sessões versionadas.
+2. **V2:** TUI opcional, plugins no-code e auto-commit por fase.
+3. **V3:** marketplace de processos/plugins, observabilidade e dashboard web opcional.
 
 ---
 
