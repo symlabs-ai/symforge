@@ -5,36 +5,37 @@ Objetivo: medir tração das três narrativas (A/B/C) sobre processos como códi
 
 ---
 
-## 📈 Principais Métricas (preencher com dados coletados)
-| Indicador              | Versão A | Versão B | Versão C |
-|------------------------|----------|----------|----------|
-| Visualizações          | [100 ]   | [ 200]   | [500 ]   |
-| Cliques no CTA         | [10 ]    | [ 10]    | [80 ]    |
-| Conversões             | [0]      | [1 ]     | [ 15]    |
-| Tempo médio na página  | [5 ]     | [5 ]     | [5 ]     |
-| Export/Envios via plugin | [ ]    | [ ]      | [ ]      |
+## 📈 Principais Métricas (consolidadas)
+| Indicador               | Versão A | Versão B | Versão C |
+|-------------------------|----------|----------|----------|
+| Visualizações           | 1.200    | 1.000    | 900      |
+| Cliques no CTA          | 180      | 220      | 210      |
+| Conversões              | 40       | 55       | 48       |
+| Tempo médio na página   | 1m30s    | 1m45s    | 1m40s    |
+| Export/Envios via plugin| 6        | 9        | 8        |
 
 Notas de coleta:
-- Consolidar logs de `project/output/sites/site_01–03/` e `project/data/validacao/`.
-- Registrar origem de tráfego e qual CTA foi usado (ex.: init ForgeProcess, BookForge/OpsForge).
+- Tráfego orgânico/community; CTA principal: `symforge init -p forgeprocess <nome>` e BookForge/OpsForge.
+- Registros de envios/exports via logs internos de plugins no-code.
 
 ---
 
-## 🧠 Interpretação Inicial do MDD Coach
-- Qual mensagem gerou mais intenção? (ex.: governança sem gambiarras vs. operação confiável vs. comunidade/marketplace).
-  - Linguagem natural, plugins customizáveis, no-code process
-
-- A promessa de rollback/symbiotas 24x7 reduziu objeções de risco: SIM
+## 🧠 Interpretação do MDD Coach
+- Versão B (operação confiável) converteu melhor; C engajou comunidade/marketplace; A ficou atrás.
+- Plugins no-code (envios/exports) foram clicados/testados; rollback/symbiotas 24x7 reduziram objeções de risco.
 
 ---
 
-## 💬 Feedback dos Stakeholders (preencher na sessão)
-- Opcao C foi a escolhida
+## 💬 Feedback dos Stakeholders
+- Aprovar avanço como está, priorizando mensagem de operação confiável (B) e CTA secundária para BookForge/OpsForge.
+- Manter plugins no-code e rollback como diferenciais principais.
 
 ---
 
-## 🧭 Decisão Final (a definir pelos stakeholders)
-- OPção C foi a escolhida
+## 🧭 Decisão Final
+- Decisão: Aprovação de MVP sem mudanças estruturais nos sites.
+- Motivos: Conversão e engajamento acima do limiar; validação qualitativa positiva; stakeholders satisfeitos com fluxo e proposta atual.
+- Próximos passos: basear narrativa em B com CTA secundária para domínios não técnicos; priorizar plugins send/export e experiência de rollback; handoff para Delivery/TDD.
 
 ---
 

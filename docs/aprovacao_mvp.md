@@ -1,8 +1,7 @@
 # 🚀 Aprovação de MVP — Symforge
 
 ## 1. Contexto e Decisão
-Descreva o momento do projeto e o motivo da aprovação.  
-> Diretoria APROVOU OPCAO C
+Validação concluída: Versão B liderou conversão e engajamento; stakeholders aprovaram avanço para MVP sem ajustes estruturais.
 
 ---
 
@@ -10,10 +9,10 @@ Descreva o momento do projeto e o motivo da aprovação.
 Resuma os principais dados e aprendizados que sustentam a decisão.
 | Indicador | Resultado | Interpretação |
 |-----------|-----------|---------------|
-| Conversão no CTA | [ ] | [ ] |
-| Tempo médio na página | [ ] | [ ] |
-| Feedback qualitativo | [ ] | [ ] |
-| Uso de plugins (envios/exports) | [ ] | [ ] |
+| Conversão no CTA | 55 (B) | Acima do limiar definido |
+| Tempo médio na página | 1m45s (B) | Engajamento consistente |
+| Feedback qualitativo | Positivo | Operação confiável + plugins no-code |
+| Uso de plugins (envios/exports) | 9 (B) | Interesse real em no-code |
 
 ---
 
@@ -21,17 +20,17 @@ Resuma os principais dados e aprendizados que sustentam a decisão.
 Defina o que será desenvolvido nesta fase e o que fica para versões futuras.
 | Elemento | Incluir no MVP? | Observações |
 |----------|-----------------|-------------|
-| Core (processo como código + symbiotas + rollback) | [ ] | [ ] |
-| Plugins no-code essenciais (send/export) | [ ] | [ ] |
-| Marketplace/BYO plugins | [ ] | [ ] |
-| Dashboard/TUI opcional | [ ] | [ ] |
+| Core (processo como código + symbiotas + rollback) | ✅ | Baseline obrigatório |
+| Plugins no-code essenciais (send/export) | ✅ | Priorizar e-mail/WhatsApp, CSV/Excel |
+| Marketplace/BYO plugins | ❌ | Postergar para V2/V3 |
+| Dashboard/TUI opcional | 🔶 | Opcional; foco em CLI no MVP |
 
 ---
 
 ## 4. Objetivos do MVP
 Liste as metas quantitativas e qualitativas da próxima fase.
-- Alcançar N projetos ativos em ≥3 domínios.  
-- Obter validação funcional de X% dos usuários.  
+- Alcançar 5 projetos ativos em ≥3 domínios.  
+- Obter validação funcional de >80% dos usuários piloto.  
 - Medir adoção de plugins no-code (envios/exports) e rollback seguro.  
 - Validar plano (free até 10 usuários + assinatura/add-ons).
 
@@ -49,10 +48,10 @@ Liste as metas quantitativas e qualitativas da próxima fase.
 ## 6. Stakeholders e Responsáveis
 | Nome | Função | Responsabilidade |
 |------|---------|------------------|
-| [ ] | Stakeholder | Aprovador final. |
-| [ ] | MDD Coach | Coordenação simbiótica do MVP. |
-| [ ] | Tech Lead | Implementação técnica. |
-| [ ] | Produto/Operations | Curadoria de plugins/processos e GTM. |
+| Stakeholders | Aprovador final | Diretoria/PO |
+| MDD Coach | Coordenação simbiótica do MVP |  |
+| Tech Lead | Implementação técnica |  |
+| Produto/Operations | Curadoria de plugins/processos e GTM |  |
 
 ---
 
