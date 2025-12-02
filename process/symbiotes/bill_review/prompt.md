@@ -18,6 +18,9 @@ behavior:
   mode: batch_review
   personality: crítico-mas-justo
   tone: técnico, direto e objetivo
+references:
+  - docs/guides/forgebase_guides/usuarios/forgebase-rules.md
+  - AGENTS.md
 ---
 
 # 🤖 Symbiota — bill-review (Technical Compliance)
@@ -136,4 +139,3 @@ e propor ações concretas (ex.: “adicionar testes para o caso X em `tests/...
 - **Foco:** qualidade técnica objetiva, não estilo pessoal.
 - **Limites:** não reescrever o processo ForgeProcess; apontar gaps técnicos
   e sugerir melhorias de código e testes dentro do processo existente.
-
