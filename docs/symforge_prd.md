@@ -4,15 +4,23 @@
 - **Propósito**: Symforge é um motor universal para definir e executar processos estruturados (software, livros, gestão, etc.) com rastreabilidade de ponta a ponta, sessões dirigidas por agentes (LLMs) e symbiotas especializados.
 - **Resultado esperado**: Usuários adotam processos versionáveis (YAML/Markdown), os executam via CLI/TUI, coletam evidências de valor (artefatos, métricas) e mantêm handoffs consistentes.
 - **Pilares**: Processos como código (`PROCESS.yml` + Markdown), execução guiada por fluxo e checkpoints, decisões Human-in-the-Loop (HIL), publicação e validação automatizadas.
+- **Benefícios para usuários**:
+  1) Processos em linguagem natural: o fluxo é descrito como se fala com a equipe, sem notações complexas, e o Symforge traduz em execução organizada.  
+  2) Voltar atrás sem medo: cada passo fica versionado, com histórico de decisões e artefatos, permitindo rollback seguro e recuperação rápida.  
+  3) Symbiotas 24x7: agentes acompanham o processo, aprendem com o contexto e pedem aprovação apenas nos pontos críticos.  
+  4) Plugins sem código: integrações (e-mail, WhatsApp, exportações) são criadas ou ajustadas pelo usuário usando modelos simples, sem programar.  
+  5) Diagramas sob demanda: visões automáticas e sempre atualizadas facilitam entendimento, alinhamento e apresentação para stakeholders.  
+  6) Composição fácil de novos processos: em qualquer área, combinam-se blocos e templates em linguagem natural para criar e adaptar fluxos rápido, sem depender de ferramentas diferentes ou time técnico.
 
 ## 2. Escopo
 - **Incluído**
   - Biblioteca de processos em `processes/*` (ForgeProcess como referência).
   - CLI/TUI para iniciar, retomar, validar e visualizar execuções.
   - Symbiotas (prompts) para coaching, revisão, publicação e auditoria.
-  - Persistência de sessões em YAML (`.symforge/sessions`).
   - Geração de diagramas Mermaid e validação de schema/processo.
   - Templates e policies para estrutura alvo de projetos.
+  - Versionamento do repositorio com Git controlado pelo symforge
+  - Persistência de sessões em YAML (`.symforge/sessions`)  também versionadas.
 - **Excluído**
   - UI web (roadmap futuro).
   - Execução distribuída/colaborativa em tempo real.
@@ -33,28 +41,27 @@
 - Navegar no fluxo (`goto <node_id>`, `reset <node_id>`).
 - Registrar handoff de sessão (`symforge handoff`) e notas (`symforge note`).
 - Gerar diagramas (`symforge diagram ...`) e inspeções (`symforge info ...`).
-- Operar via TUI (`symforge tui`) para acompanhamento interativo.
+- Operar via TUI (`symforge tui`) para acompanhamento interativo. (opcional)
 
 ## 5. Funcionalidades
 
 ### 5.1 Biblioteca de Processos
 - Estrutura em `processes/<processo>/` com `PROCESS.yml` (macro) e subprocessos (ex.: `mdd/PROCESS.yml`).
 - Artefatos versionáveis (Markdown) referenciados por paths e templates.
-- Policies e layouts em `docs/policies/**` e `docs/layout/PROJECT_LAYOUT.md`.
-- Diagramas Mermaid em `docs/diagrams/<processo>/`.
-- Symbiotas em `symbiotes/<nome>/prompt.md`.
+- Diagramas Mermaid juntamente com os arquivos PROCESS.md e yml (colocar na mesma pasta DIAGRAM.md)
+- Symbiotas em `symbiotes/<nome>/prompt.md`. (prompt deve ter front-matter)
 
 ### 5.2 CLI
 - Descoberta e resolução de `--lib-root` ou `SYMFORGE_LIB_ROOT`.
 - Comandos de biblioteca/processos:
   - `init -p <processo> <projeto>`: copia processo para `process/` e estrutura alvo.
-  - `update`: sincroniza processo existente com a biblioteca (executar dentro do projeto).
+  - `update`: sincroniza processo existente (PROJECT_ROOT) com a biblioteca (LIB_ROOT) (executar dentro do projeto).
   - `list-processes`: lista processos disponíveis.
-  - `list-agents`: lista agentes LLM configurados (config global).
+  - `list-agents`: lista coding agentes LLM configurados (config global).
+  - `list-symbiotes`: lista symbiotas (ambiente projeto).
 - Prompts e produção de conteúdo:
-  - `prompt-text <prompt_file> <target_file>`: imprime prompt combinado sem executar LLM.
   - `-prompt <prompt_file> <target_file>` (flag global): executa prompt com LLM configurado.
-  - `produce ...` (Gamma API):
+  - `produce ...` (arquitetura de plugins para produtores e extensões no-code: ex: Gamma.ai):
     - `produce generate`: gera apresentação/documento/webpage/social com opções de texto, formato, tema, imagem, export (pdf/pptx), pastas.
     - `produce from-template`: adapta template existente com prompt, tema e export opcional.
     - `produce status [--wait --interval --timeout] <generation_id>`: consulta estado e opcionalmente espera.
@@ -62,7 +69,7 @@
     - `produce folders [--limit --after]`: lista pastas do workspace.
 - Inspeção e validação de processos:
   - `validate <PROCESS.yml> [...] [--recursive]`: valida contra `esquemas/process.schema.json`.
-  - `info <PROCESS.yml>`: imprime resumo (fases, steps, symbiotas, layout).
+  - `info <PROCESS.yml>`: imprime resumo (fases, steps, symbiotas, layout) em formato arvore.
   - `diagram <PROCESS.yml> -t <flowchart|state|summary|all> [-o <file>]`: gera diagramas Mermaid.
 - Execução de processos:
   - `start [-f <process_file>] [-n <nome>] [--interactive|--batch]`: inicia sessão.
@@ -76,20 +83,20 @@
   - `sessions list [--status] | sessions delete <id> | sessions export <id>`: gestão de sessões.
   - `reply <message> [--batch]`: responde symbiota e continua (note+resume).
 - Notas, handoff e configuração:
-  - `note "msg" [session_id] [-t type | --handoff]`: adiciona nota.
-  - `notes [session_id] [-t type] [-n N] [--json]`: lista notas.
   - `handoff [session_id] [-o file] [--no-history] [--no-decisions]`: exporta contexto completo.
+  - handon recupera contexto da sessão ativa com base no documento gerado anteriormente pelo handoff
   - `config [key] [value]`: exibe ou altera configurações do projeto (ex.: verbose).
 - Interface:
   - `tui [session_id]`: dashboard interativo Textual para acompanhar sessões.
+  - `plugin <cmd>` (planejado): listar/adicionar/inspecionar plugins no-code (send/export/hook/generate) instalados no projeto.
 
 ### 5.3 Engine de Execução
 - **FlowGraph + FlowInterpreter**: lê `PROCESS.yml`, executa nodes (start, step, decision, call subprocess, end), gerencia stack de subprocessos.
-- **Estados de sessão**: `RUNNING`, `PROCESSING`, `AWAITING_DECISION`, `AWAITING_INPUT`, `PAUSED`, `COMPLETED`, `FAILED`, `CANCELLED` (definidos em `docs/SESSION_STATES.md`).
+- **Estados de sessão**: `RUNNING`, `PROCESSING`, `AWAITING_DECISION`, `AWAITING_INPUT`, `PAUSED`, `COMPLETED`, `FAILED`, `CANCELLED` (definidos em `docs/SESSION_STATES.md`). fonte da verdade 
 - **Loop protection**: limite de iterações e visitas por nó (para evitar loops).
 - **Validação de inputs/outputs**: bloqueia execução e aponta arquivos faltantes.
 - **Symbiota integration**: steps podem invocar prompts; decisões podem ser HIL ou por symbiota (quando permitido).
-- **Auto-commit opcional**: registros git por step (mencionado em TODO como feito).
+- **Auto-commit**: registros git por step ou final de phase. Imprescindivel para o controle de versão com rollback 
 
 #### 5.3.1 Sistema de Estados de Sessão (Resumo de docs/SESSION_STATES.md)
 - **Governança**: A CLI é a única fonte de transições; a TUI apenas reflete estado, dispara comandos e mostra ações válidas (nunca altera arquivos/estado diretamente).
@@ -103,11 +110,11 @@
 - **Transições chave**: `start` → RUNNING; `decide` ou `resume` liberam AWAITING_DECISION/INPUT; `end` encerra (completed/cancelled); erros/loops → FAILED; `reset` retorna a RUNNING e limpa outputs afetados.
 - **TUI por estado**: mostra rótulos e ações rápidas (ex.: AWAITING_DECISION → tecla `d`; AWAITING_INPUT/PAUSED → `c`; FAILED → `R`; COMPLETED/CANCELLED → `h`; RUNNING/PROCESSING → apenas visualizar).
 - **Invariantes**: um status por vez; apenas AWAITING_DECISION carrega `pending_decision`; apenas AWAITING_INPUT carrega `pending_input`; terminais não saem; PROCESSING sempre transiente.
-- **Sessões órfãs**: detectadas quando RUNNING/PROCESSING sem execução real; recupera com `symforge resume --force` (ou tecla `c` na TUI que chama o comando).
+- **Sessões órfãs**: detectadas quando RUNNING/PROCESSING sem execução real (possivel encerramento com crash); recupera com `symforge resume --force` (ou tecla `c` na TUI que chama o comando).
 ### 5.4 Persistência
-- Diretório `.symforge/` em projeto: `config.yml`, `env.example`, `credentials/`, `sessions/`.
-- Sessões em YAML: `session.yml`, `history.yml`, `decisions.yml`, `notes.yml`.
-- Handoff exportável via comando `handoff` (MD em `sessions/`).
+- Diretório `.symforge/` em projeto: `config.yml`, `env.example`, `credentials/`, `sessions/`.  (não versionado .gitignore)
+- Sessões em YAML: `session.yml`, `history.yml`, `decisions.yml`, `notes.yml`. (versionado)
+- Handoff exportável via comando `handoff` (MD em `sessions/`). (versionado)
 
 ### 5.5 TUI
 - Base Textual: painel de sessão, status bar, modal de decisões, viewer de arquivos (MD), atalhos (`q`, `r`, `d`, `v`, `e`, `c`, `R`, `h`).
@@ -122,14 +129,19 @@
 ### 5.7 Symbiotas e Prompts
 - Symbiotas padrão (ForgeProcess): `mdd_coach`, `mdd_publisher`, `bill_review`, `jorge_forge`, `orchestrator`.
 - Prompts reutilizáveis para handoff/handon (`prompts/handoff.md`, `prompts/handon.md`) e conversão MD → YAML (`prompts/process_to_yaml.md`).
-- Suporte a provedores (Codex, Claude, Gemini) configurados externamente; `.claude/` é local do usuário.
+- Suporte a provedores (Codex, Claude, Gemini) configurados em ; `.symforge/config.yml` 
 
-### 5.8 Integrações Externas
-- **Gamma API**: geração e exportação de apresentações (helpers em `gamma_api.py`).
+### 5.8 Plugins
+- Manifestos em `plugins/<nome>/plugin.yml` definem tipo (`send|export|hook|generate`), entrypoint/comando e permissões (rede/arquivos).
+- Execução no-code: usuário configura payloads/inputs sem escrever código; plugins podem enviar (e-mail, WhatsApp, Slack), exportar (MD→CSV/Excel), gerar conteúdos ou reagir a eventos.
+- Descoberta e gestão planejadas via CLI (`plugin list/info/add`); sandbox/timeout para segurança.
+
+### 5.9 Integrações Externas
+- **Gamma API**: geração e exportação de apresentações (helpers em `gamma_api.py`). Integrar na arquiteura de plugins para produce
 - **Git**: auto-commits e resets controlados pelo engine (não usar comandos destrutivos fora do fluxo).
-- **LLM providers**: usados pelos symbiotas via prompts (config fora do repo).
+- **LLM providers**: usados pelos symbiotas via prompts (`.symforge/config.yml` ).
 
-### 5.9 Guia para Criar Novos Processos (Resumo de docs/guides/creating-processes.md)
+### 5.10 Guia para Criar Novos Processos (Resumo de docs/guides/creating-processes.md)
 - **Anatomia**: cada processo tem `PROCESS.md` (documentação humana) e `PROCESS.yml` (contrato executável). Markdown é fonte de verdade e deve ser convertido para YAML usando o prompt `process_to_yaml.md`.
 - **Fluxo recomendado**:
   1) Criar pasta em `processes/<nome>/`.
@@ -142,7 +154,7 @@
 - **Automação/CI**: exemplo de workflow para validar `PROCESS.yml` em push/PR; usar `pip install pyyaml jsonschema` e `scripts/validate_process.py processes/*/PROCESS.yml`.
 - **Referências**: template (`esquemas/PROCESS_TEMPLATE.md`), schema (`esquemas/process.schema.json`), validador (`scripts/validate_process.py`), prompt (`prompts/process_to_yaml.md`).
 
-### 5.10 Visão de Produto (Resumo de docs/vision/VISION.md)
+### 5.11 Visão de Produto (Resumo de docs/VISION.md)
 - **Tese central**: motor universal de processos; o que muda por domínio é o processo carregado (ForgeProcess, BookForge, BizForge, etc.), com humanos no centro e pontos HIL explícitos.
 - **Componentes do ecossistema**:
   - Biblioteca de processos (`processes/`), com fases, artefatos, políticas, templates, diagramas e symbiotas.
