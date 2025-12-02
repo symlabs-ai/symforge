@@ -1,0 +1,16 @@
+line-length = 88
+target-version = "py312"
+
+[lint]
+select = ["E", "F", "I", "B", "UP", "C4", "SIM", "RET", "N"]
+ignore = [
+  "E203", # compatível com black
+  "E266",
+  "E501",
+]
+
+[format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"

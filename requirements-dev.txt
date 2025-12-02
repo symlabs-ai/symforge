@@ -1,0 +1,15 @@
+# Conjunto de ferramentas de qualidade usadas pelo ForgeBase:
+# - pytest: suíte principal de testes (unitários, integração, contrato)
+# - pytest-cov: mede cobertura e gera relatórios (--cov flags do pytest)
+# - hypothesis: testes baseados em propriedades para entidades/VOs
+# - ruff: lint/format rápido com regras de estilo e import order
+# - mypy: checagem de tipos estática (config em scripts/mypy.ini)
+# - import-linter: garante boundaries da Clean Architecture (.import-linter)
+# - deptry: higiene de dependências (detecta unused/missing extras)
+pytest>=8.0.0
+pytest-cov>=4.0.0
+hypothesis>=6.0.0
+ruff>=0.14.0
+mypy>=1.7.0
+import-linter>=2.0.0
+deptry>=0.20.0
