@@ -95,7 +95,7 @@ def plugin_repo_invalid(tmp_path: Path) -> Path:
     return _write_plugin(tmp_path / "repo_invalid", manifest, code)
 
 
-@given("tenho um processo em execução com artefatos gerados")
+@given("que tenho um processo em execução com artefatos gerados", target_fixture="processo_em_execucao")
 def processo_em_execucao(workspace: Path) -> dict:
     artefato = workspace / "artefato.md"
     artefato.write_text("# artefato", encoding="utf-8")
@@ -125,14 +125,14 @@ def vejo_plugin_instalado(ctx: dict):
             assert "permissions" in p
 
 
-@given('o plugin "send_email" está instalado')
-@given("defini destinatário e assunto")
+@given('que o plugin "send_email" está instalado', target_fixture="plugin_email_configurado")
+@given("defini destinatário e assunto", target_fixture="plugin_email_configurado")
 def plugin_email_configurado(plugin_manager: PluginManager, plugin_repo_send: Path) -> dict:
     plugin_manager.add_from_path(plugin_repo_send)
     return {"manager": plugin_manager, "payload": {"to": "user@example.com", "subject": "hi"}}
 
 
-@when("executo o envio com o artefato atual")
+@when("executo o envio com o artefato atual", target_fixture="executo_envio")
 def executo_envio(plugin_email_configurado: dict):
     manager: PluginManager = plugin_email_configurado["manager"]
     payload = plugin_email_configurado["payload"]
@@ -148,13 +148,13 @@ def log_sucesso_envio(executo_envio: dict):
     assert result.get("to") == executo_envio["payload"]["to"]
 
 
-@given('o plugin "export_csv" está instalado')
+@given('que o plugin "export_csv" está instalado', target_fixture="plugin_export_instalado")
 def plugin_export_instalado(plugin_manager: PluginManager, plugin_repo_export: Path, processo_em_execucao: dict) -> dict:
     plugin_manager.add_from_path(plugin_repo_export)
     return {"manager": plugin_manager, "artefato": processo_em_execucao["artefato"]}
 
 
-@when("executo o export do artefato Markdown")
+@when("executo o export do artefato Markdown", target_fixture="executo_export")
 def executo_export(plugin_export_instalado: dict, workspace: Path):
     manager: PluginManager = plugin_export_instalado["manager"]
     artefato: Path = plugin_export_instalado["artefato"]
@@ -177,7 +177,7 @@ def cli_confirma_sucesso(executo_export: dict):
     assert "output_path" in result
 
 
-@given("um plugin não declara permissões ou tem manifesto incorreto")
+@given("que um plugin não declara permissões ou tem manifesto incorreto", target_fixture="plugin_manifesto_invalido")
 def plugin_manifesto_invalido(plugin_repo_invalid: Path) -> dict:
     return {"repo": plugin_repo_invalid}
 
