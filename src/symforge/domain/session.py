@@ -43,3 +43,9 @@ class Session:
         idx = self.history.index(step_id)
         self.history = self.history[: idx + 1]
         self.state = SessionState.RUNNING
+
+    def mark_paused(self) -> None:
+        self.state = SessionState.PAUSED
+
+    def mark_completed(self) -> None:
+        self.state = SessionState.COMPLETED

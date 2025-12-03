@@ -46,3 +46,13 @@ class RuntimeCLI:
             "history": session.history,
             "pending_decision": session.pending_decision,
         }
+
+    def pause(self, session_id: str) -> str:
+        session = self.runtime.repo.load(session_id)
+        handoff_path = self.runtime.pause(session, self.workspace)
+        return str(handoff_path)
+
+    def complete(self, session_id: str) -> str:
+        session = self.runtime.repo.load(session_id)
+        handoff_path = self.runtime.complete(session, self.workspace)
+        return str(handoff_path)

@@ -52,6 +52,14 @@ def main(argv: list[str] | None = None) -> int:
     status_cmd.add_argument("session_id")
     status_cmd.add_argument("--workspace", help="Diretório de trabalho (default: cwd)")
 
+    pause_cmd = sub.add_parser("pause", help="Pausa sessão e gera handoff")
+    pause_cmd.add_argument("session_id")
+    pause_cmd.add_argument("--workspace", help="Diretório de trabalho (default: cwd)")
+
+    complete_cmd = sub.add_parser("complete", help="Completa sessão e gera handoff final")
+    complete_cmd.add_argument("session_id")
+    complete_cmd.add_argument("--workspace", help="Diretório de trabalho (default: cwd)")
+
     plugin_cmd = sub.add_parser("plugin", help="Gerencia plugins")
     plugin_sub = plugin_cmd.add_subparsers(dest="plugin_command", required=True)
     plugin_add = plugin_sub.add_parser("add")
@@ -90,7 +98,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f"[symforge] validação falhou: {', '.join(result.errors)}", file=sys.stderr)
         return 1
 
-    if args.command in {"start", "resume", "reset", "decide", "status"}:
+    if args.command in {"start", "resume", "reset", "decide", "status", "pause", "complete"}:
         workspace = _workspace(getattr(args, "workspace", None))
         auto_commit = getattr(args, "auto_commit", False)
         runtime_cli = RuntimeCLI(workspace, auto_commit=auto_commit)
@@ -113,6 +121,14 @@ def main(argv: list[str] | None = None) -> int:
         if args.command == "status":
             status = runtime_cli.status(args.session_id)
             print(json.dumps(status, indent=2))
+            return 0
+        if args.command == "pause":
+            handoff_path = runtime_cli.pause(args.session_id)
+            print(f"[symforge] sessão pausada | handoff: {handoff_path}")
+            return 0
+        if args.command == "complete":
+            handoff_path = runtime_cli.complete(args.session_id)
+            print(f"[symforge] sessão concluída | handoff: {handoff_path}")
             return 0
 
     if args.command == "plugin":

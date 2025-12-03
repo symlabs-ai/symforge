@@ -81,6 +81,8 @@ symforge reset <session_id> step_id --workspace .
 | `status` | Mostra estado da sessão |
 | `decide` | Registra decisão HIL |
 | `reset` | Reseta sessão para passo anterior |
+| `pause` | Pausa sessão e gera handoff |
+| `complete` | Completa sessão e gera handoff final |
 
 ### Comandos de plugin
 
