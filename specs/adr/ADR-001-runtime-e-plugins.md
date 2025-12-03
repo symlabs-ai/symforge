@@ -1,7 +1,7 @@
 # ADR-001 — Runtime CLI, Persistência YAML + Git e Plugins no-code (ForgeBase)
 
 ## Status
-Proposto (MVP)
+Aceito (Implementado na Sprint 1)
 
 ## Contexto
 - Stack: Python 3.12, CLI-first (sem TUI/HTTP no MVP), modo offline por padrão.
