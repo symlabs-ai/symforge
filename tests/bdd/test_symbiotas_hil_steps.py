@@ -21,50 +21,60 @@ def session_hil() -> Session:
     session.mark_awaiting_decision()
     return session
 
+@pytest.fixture
+def ctx() -> dict:
+    return {}
 
-@given("há um passo marcado como HIL no processo")
-@given("o symbiota responsável está configurado")
+
+@given("que há um passo marcado como HIL no processo", target_fixture="passo_hil_configurado")
+@given("o symbiota responsável está configurado", target_fixture="passo_hil_configurado")
 def passo_hil_configurado(session_hil: Session) -> Session:
     return session_hil
 
 
 @when("o symbiota apresenta a pergunta do checkpoint")
-def pergunta_checkpoint(passo_hil_configurado: Session) -> Session:
+def pergunta_checkpoint(passo_hil_configurado: Session, ctx: dict) -> Session:
     # nada a fazer além de confirmar estado aguardando decisão
     assert passo_hil_configurado.state == SessionState.AWAITING_DECISION
-    return passo_hil_configurado
+    ctx["session"] = passo_hil_configurado
 
 
 @when('eu respondo com uma decisão via "symforge decide"')
-def respondo_decisao(pergunta_checkpoint: Session) -> Session:
-    pergunta_checkpoint.register_decision("approved")
-    return pergunta_checkpoint
+def respondo_decisao(ctx: dict) -> Session:
+    session = ctx["session"]
+    session.register_decision("approved")
+    ctx["session"] = session
+    return session
 
 
 @then("a sessão sai de AWAITING_DECISION")
-def sai_de_awaiting_decision(respondo_decisao: Session):
-    assert respondo_decisao.state == SessionState.RUNNING
+def sai_de_awaiting_decision(ctx: dict):
+    session = ctx["session"]
+    assert session.state == SessionState.RUNNING
 
 
 @then("o fluxo prossegue para o próximo passo")
-def fluxo_prossegue(respondo_decisao: Session):
-    assert not respondo_decisao.pending_decision
+def fluxo_prossegue(ctx: dict):
+    session = ctx["session"]
+    assert not session.pending_decision
 
 
 @then("a decisão fica registrada com ator e timestamp")
-def decisao_registrada(respondo_decisao: Session):
-    assert any("decision:" in item for item in respondo_decisao.history)
+def decisao_registrada(ctx: dict):
+    session = ctx["session"]
+    assert any("decision:" in item for item in session.history)
 
 
-@given("o symbiota não consegue processar o prompt ou provider falha")
-def symbiota_falha(session_hil: Session) -> Session:
+@given("que o symbiota não consegue processar o prompt ou provider falha")
+def symbiota_falha(session_hil: Session, ctx: dict) -> Session:
     session_hil.error = "provider_unavailable"  # marca falha
+    ctx["session"] = session_hil
     return session_hil
 
 
-@when("executo o passo marcado como HIL")
-def executo_passo_hil(symbiota_falha: Session) -> Session:
-    return symbiota_falha
+@when("executo o passo marcado como HIL", target_fixture="executo_passo_hil")
+def executo_passo_hil(ctx: dict) -> Session:
+    return ctx["session"]
 
 
 @then("recebo mensagem de fallback para intervenção humana")

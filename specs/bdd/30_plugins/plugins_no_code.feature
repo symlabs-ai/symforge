@@ -42,3 +42,8 @@ Funcionalidade: Instalar e usar plugins no-code de envio/export
     Dado que um plugin não declara permissões ou tem manifesto incorreto
     Quando tento instalá-lo
     Então o Symforge bloqueia a instalação com mensagem clara de erro
+
+  Cenário: Recusar plugin que exige rede em modo offline
+    Dado que um plugin solicita acesso de rede
+    Quando tento instalá-lo em modo offline
+    Então o Symforge bloqueia o plugin por requerer rede

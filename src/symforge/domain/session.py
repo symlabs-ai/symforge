@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 
+from symforge.domain.exceptions import StepNotFoundError
 from symforge.domain.states import SessionState
 
 
@@ -38,7 +39,7 @@ class Session:
 
     def reset_to(self, step_id: str) -> None:
         if step_id not in self.history:
-            raise ValueError("Passo sem versionamento para reset")
+            raise StepNotFoundError(step_id)
         idx = self.history.index(step_id)
         self.history = self.history[: idx + 1]
         self.state = SessionState.RUNNING

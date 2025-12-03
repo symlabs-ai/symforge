@@ -1,42 +1,44 @@
 # Template de Feature Gherkin (PT-BR)
 
 > **Use este template** para escrever features Gherkin seguindo o padrão Forge.
+> Inclua sempre `# language: pt` no topo para garantir parsing correto.
 
 ---
 
 ## Arquivo: `specs/bdd/[prefixo]_[dominio]/[nome].feature`
 
 ```gherkin
+# language: pt
 # [prefixo]_[dominio]/[nome].feature
 # Descrição breve do que esta feature especifica
 
 @tag_dominio @tag_capacidade @tag_ci
-FUNCIONALIDADE: [Título claro e descritivo]
-  PARA [benefício ou valor entregue]
-  COMO [ator ou tipo de usuário]
-  QUERO [capacidade ou ação desejada]
+Funcionalidade: [Título claro e descritivo]
+  Para [benefício ou valor entregue]
+  Como [ator ou tipo de usuário]
+  Quero [capacidade ou ação desejada]
 
-  CONTEXTO:
-    DADO [pré-condição compartilhada entre cenários]
+  Contexto:
+    Dado [pré-condição compartilhada entre cenários]
     E [outra pré-condição se necessário]
 
-  CENÁRIO: [Nome do caso de sucesso - Happy Path]
-    DADO [contexto específico deste cenário]
+  Cenário: [Nome do caso de sucesso - Happy Path]
+    Dado [contexto específico deste cenário]
     E [mais contexto se necessário]
-    QUANDO [ação executada pelo usuário]
-    ENTÃO [resultado esperado observável]
+    Quando [ação executada pelo usuário]
+    Então [resultado esperado observável]
     E [efeito colateral observável — log, métrica, estado]
 
-  CENÁRIO: [Nome do caso de erro]
-    DADO [contexto que leva ao erro]
-    QUANDO [ação que causa o erro]
-    ENTÃO [tratamento de erro esperado]
+  Cenário: [Nome do caso de erro]
+    Dado [contexto que leva ao erro]
+    Quando [ação que causa o erro]
+    Então [tratamento de erro esperado]
     E [evidência do tratamento — mensagem, log, código de erro]
 
-  ESQUEMA DO CENÁRIO: [Nome do caso parametrizado]
-    DADO [contexto com "<parametro>"]
-    QUANDO [ação com "<parametro>"]
-    ENTÃO [resultado com "<parametro>"]
+  Esquema do Cenário: [Nome do caso parametrizado]
+    Dado [contexto com "<parametro>"]
+    Quando [ação com "<parametro>"]
+    Então [resultado com "<parametro>"]
     E [validação adicional]
 
     EXEMPLOS:

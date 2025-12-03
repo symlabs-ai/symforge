@@ -21,35 +21,36 @@ Esta é a etapa onde a **comunicação universal** acontece: todos — stakehold
 ## 📖 Anatomia de uma Feature Gherkin (Padrão Forge)
 
 ```gherkin
+# language: pt
 @tag_dominio @tag_capacidade @tag_ci
-FUNCIONALIDADE: [Título claro e descritivo]
-  PARA [benefício/valor entregue]
-  COMO [ator/usuário]
-  QUERO [capacidade desejada]
+Funcionalidade: [Título claro e descritivo]
+  Para [benefício/valor entregue]
+  Como [ator/usuário]
+  Quero [capacidade desejada]
 
-  CONTEXTO:
-    DADO [pré-condição compartilhada entre cenários]
+  Contexto:
+    Dado [pré-condição compartilhada entre cenários]
     E [outra pré-condição]
 
-  CENÁRIO: [Nome do caso de sucesso]
-    DADO [contexto específico]
+  Cenário: [Nome do caso de sucesso]
+    Dado [contexto específico]
     E [mais contexto se necessário]
-    QUANDO [ação executada]
-    ENTÃO [resultado esperado]
+    Quando [ação executada]
+    Então [resultado esperado]
     E [efeito colateral observável]
 
-  CENÁRIO: [Nome do caso de erro]
-    DADO [contexto que leva ao erro]
-    QUANDO [ação que causa erro]
-    ENTÃO [tratamento esperado]
+  Cenário: [Nome do caso de erro]
+    Dado [contexto que leva ao erro]
+    Quando [ação que causa erro]
+    Então [tratamento esperado]
     E [mensagem ou log específico]
 
-  ESQUEMA DO CENÁRIO: [Nome do caso parametrizado]
-    DADO [contexto com <parametro>]
-    QUANDO [ação com <parametro>]
-    ENTÃO [resultado com <parametro>]
+  Esquema do Cenário: [Nome do caso parametrizado]
+    Dado [contexto com <parametro>]
+    Quando [ação com <parametro>]
+    Então [resultado com <parametro>]
 
-    EXEMPLOS:
+    Exemplos:
       | parametro | resultado |
       | valor1    | esperado1 |
       | valor2    | esperado2 |
@@ -324,6 +325,11 @@ FUNCIONALIDADE: Gestão de sessões
 - `@ci-fast` - Rápido (mocks, sem deps externas)
 - `@ci-int` - Integração (provedores locais)
 - `@e2e` - End-to-end (deps externas)
+
+### Dicas finais
+- Mantenha palavras-chave em minúsculas e `# language: pt`.
+- Casar textos dos steps com as step definitions (evitar variação “o/que/um”).
+- Rode `pytest --collect-only` (com `PYTHONPATH=src`) para validar sintaxe antes de commitar.
 
 ---
 

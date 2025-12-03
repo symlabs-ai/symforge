@@ -93,6 +93,7 @@ class PluginManager:
             raise ValueError("Tipo de plugin inválido")
         if ":" not in manifest["entrypoint"]:
             raise ValueError("Entrypoint deve ser no formato module:function")
+        self._validate_permissions(manifest.get("permissions"))
 
     def _load_plugin(self, plugin_id: str) -> tuple[dict[str, Any], Any]:
         plugin_dir = self.plugins_root / plugin_id
@@ -122,3 +123,20 @@ class PluginManager:
         if func is None:
             raise ValueError("Função de entrypoint não encontrada")
         return func
+
+    def _validate_permissions(self, permissions: dict[str, Any] | None) -> None:
+        if permissions is None:
+            raise ValueError("Manifesto inválido: permissions ausente")
+        if not isinstance(permissions, dict):
+            raise ValueError("Manifesto inválido: permissions malformado")
+
+        network = permissions.get("network", False)
+        if network:
+            raise ValueError("Permissão de network não é permitida em modo offline")
+
+        fs = permissions.get("fs", [])
+        env = permissions.get("env", [])
+        if not isinstance(fs, list):
+            raise ValueError("permissions.fs deve ser lista")
+        if not isinstance(env, list):
+            raise ValueError("permissions.env deve ser lista")

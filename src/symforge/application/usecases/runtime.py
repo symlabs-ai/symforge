@@ -1,5 +1,6 @@
 from pathlib import Path
 
+from symforge.domain.exceptions import NoPendingDecisionError, StepNotFoundError
 from symforge.domain.process_definition import ProcessDefinition
 from symforge.domain.session import Session
 from symforge.domain.states import SessionState
@@ -7,15 +8,18 @@ from symforge.infrastructure.session_repository import SessionRepository
 
 
 class RuntimeUseCases:
-    def __init__(self, sessions_dir: Path):
-        self.repo = SessionRepository(sessions_dir)
+    def __init__(self, sessions_dir: Path, auto_commit: bool = False):
+        self.repo = SessionRepository(sessions_dir, auto_commit=auto_commit)
 
     def start(self, process: ProcessDefinition, workspace: Path) -> Session:
         missing = self._missing_artifacts(process.required_artifacts, workspace)
         session = self.repo.create(process, missing)
-        if not missing:
+        if process.required_artifacts and missing:
+            session.mark_awaiting_input(missing)
+            self.repo.update(session)
+        else:
             session.state = SessionState.RUNNING
-        self.repo.update(session)
+            self.repo.update(session)
         return session
 
     def resume_after_input(self, session: Session, workspace: Path) -> Session:
@@ -29,14 +33,14 @@ class RuntimeUseCases:
 
     def reset_step(self, session: Session, step_id: str) -> Session:
         if not session.can_reset(step_id):
-            raise ValueError("Passo sem versionamento para reset")
+            raise StepNotFoundError(step_id)
         session.reset_to(step_id)
         self.repo.update(session)
         return session
 
     def mark_decision(self, session: Session, decision: str) -> Session:
         if session.state != SessionState.AWAITING_DECISION:
-            raise ValueError("Sem decisão pendente")
+            raise NoPendingDecisionError()
         session.register_decision(decision)
         self.repo.update(session)
         return session

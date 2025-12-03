@@ -143,6 +143,26 @@ def generate(payload):
     return _write_plugin(tmp_path / "repo_generate", manifest, code)
 
 
+@pytest.fixture
+def plugin_repo_network(tmp_path: Path) -> Path:
+    manifest = """\
+id: network_plugin
+name: Network Plugin
+version: "0.1.0"
+type: send
+entrypoint: plugin:run
+permissions:
+  network: true
+  fs: []
+  env: []
+"""
+    code = """\
+def run(payload):
+    return {"status": "ok"}
+"""
+    return _write_plugin(tmp_path / "repo_network", manifest, code)
+
+
 @given("que tenho um processo em execução com artefatos gerados", target_fixture="processo_em_execucao")
 def processo_em_execucao(workspace: Path) -> dict:
     artefato = workspace / "artefato.md"
@@ -284,3 +304,23 @@ def conteudo_gerado(executo_generate: dict):
     result = executo_generate["result"]
     assert "content" in result
     assert "Symforge" in result["content"]
+
+
+@given("que um plugin solicita acesso de rede", target_fixture="plugin_rede")
+def plugin_rede(plugin_repo_network: Path, plugin_manager: PluginManager) -> dict:
+    return {"repo": plugin_repo_network, "manager": plugin_manager}
+
+
+@when("tento instalá-lo em modo offline")
+def instalo_plugin_rede(plugin_rede: dict):
+    plugin_rede["error"] = None
+    try:
+        plugin_rede["manager"].add_from_path(plugin_rede["repo"])
+    except ValueError as exc:
+        plugin_rede["error"] = exc
+    return plugin_rede
+
+
+@then("o Symforge bloqueia o plugin por requerer rede")
+def bloqueia_rede(plugin_rede: dict):
+    assert plugin_rede["error"] is not None
