@@ -5,6 +5,13 @@ from typing import Any
 
 import yaml
 
+from symforge.domain.exceptions import (
+    InvalidManifestError,
+    NetworkPermissionDeniedError,
+    PluginNotFoundError,
+    PluginTypeError,
+)
+
 
 class PluginManager:
     """
@@ -23,7 +30,7 @@ class PluginManager:
         manifest_path = repo_path / "plugin.yml"
         code_path = repo_path / "plugin.py"
         if not manifest_path.exists() or not code_path.exists():
-            raise ValueError("Manifesto ou código do plugin ausente")
+            raise InvalidManifestError("manifesto ou código do plugin ausente")
 
         manifest = self._load_manifest(manifest_path)
         self._validate_manifest(manifest)
@@ -54,14 +61,14 @@ class PluginManager:
     def execute_send(self, plugin_id: str, payload: dict[str, Any]) -> Any:
         manifest, module = self._load_plugin(plugin_id)
         if manifest["type"] != "send":
-            raise ValueError("Plugin não é do tipo send")
+            raise PluginTypeError(plugin_id, "send", manifest["type"])
         func = self._resolve_entrypoint(manifest, module)
         return func(payload)
 
     def execute_export(self, plugin_id: str, input_path: Path, output_path: Path | None = None) -> Any:
         manifest, module = self._load_plugin(plugin_id)
         if manifest["type"] != "export":
-            raise ValueError("Plugin não é do tipo export")
+            raise PluginTypeError(plugin_id, "export", manifest["type"])
         func = self._resolve_entrypoint(manifest, module)
         if output_path:
             return func(input_path, output_path=output_path)
@@ -70,14 +77,14 @@ class PluginManager:
     def execute_hook(self, plugin_id: str, context: dict[str, Any]) -> Any:
         manifest, module = self._load_plugin(plugin_id)
         if manifest["type"] != "hook":
-            raise ValueError("Plugin não é do tipo hook")
+            raise PluginTypeError(plugin_id, "hook", manifest["type"])
         func = self._resolve_entrypoint(manifest, module)
         return func(context)
 
     def execute_generate(self, plugin_id: str, payload: dict[str, Any]) -> Any:
         manifest, module = self._load_plugin(plugin_id)
         if manifest["type"] != "generate":
-            raise ValueError("Plugin não é do tipo generate")
+            raise PluginTypeError(plugin_id, "generate", manifest["type"])
         func = self._resolve_entrypoint(manifest, module)
         return func(payload)
 
@@ -88,11 +95,11 @@ class PluginManager:
         required = ["id", "name", "version", "type", "entrypoint"]
         for key in required:
             if not manifest.get(key):
-                raise ValueError(f"Manifesto inválido: campo obrigatório {key} faltando")
+                raise InvalidManifestError(f"campo obrigatório {key} faltando")
         if manifest["type"] not in self.ALLOWED_TYPES:
-            raise ValueError("Tipo de plugin inválido")
+            raise InvalidManifestError("tipo de plugin inválido")
         if ":" not in manifest["entrypoint"]:
-            raise ValueError("Entrypoint deve ser no formato module:function")
+            raise InvalidManifestError("entrypoint deve ser no formato module:function")
         self._validate_permissions(manifest.get("permissions"))
 
     def _load_plugin(self, plugin_id: str) -> tuple[dict[str, Any], Any]:
@@ -100,7 +107,7 @@ class PluginManager:
         manifest_path = plugin_dir / "plugin.yml"
         code_path = plugin_dir / "plugin.py"
         if not manifest_path.exists() or not code_path.exists():
-            raise ValueError("Plugin não instalado")
+            raise PluginNotFoundError(plugin_id)
         manifest = self._load_manifest(manifest_path)
         self._validate_manifest(manifest)
         module = self._import_module(code_path, f"plugin_{plugin_id}")
@@ -118,25 +125,25 @@ class PluginManager:
         entry = manifest["entrypoint"]
         mod_name, func_name = entry.split(":", 1)
         if mod_name != "plugin":
-            raise ValueError("Entrypoint deve referenciar module 'plugin'")
+            raise InvalidManifestError("entrypoint deve referenciar module 'plugin'")
         func = getattr(module, func_name, None)
         if func is None:
-            raise ValueError("Função de entrypoint não encontrada")
+            raise InvalidManifestError(f"função de entrypoint '{func_name}' não encontrada")
         return func
 
     def _validate_permissions(self, permissions: dict[str, Any] | None) -> None:
         if permissions is None:
-            raise ValueError("Manifesto inválido: permissions ausente")
+            raise InvalidManifestError("permissions ausente")
         if not isinstance(permissions, dict):
-            raise ValueError("Manifesto inválido: permissions malformado")
+            raise InvalidManifestError("permissions malformado")
 
         network = permissions.get("network", False)
         if network:
-            raise ValueError("Permissão de network não é permitida em modo offline")
+            raise NetworkPermissionDeniedError()
 
         fs = permissions.get("fs", [])
         env = permissions.get("env", [])
         if not isinstance(fs, list):
-            raise ValueError("permissions.fs deve ser lista")
+            raise InvalidManifestError("permissions.fs deve ser lista")
         if not isinstance(env, list):
-            raise ValueError("permissions.env deve ser lista")
+            raise InvalidManifestError("permissions.env deve ser lista")

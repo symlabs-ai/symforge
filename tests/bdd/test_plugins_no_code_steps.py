@@ -10,6 +10,7 @@ if str(SRC) not in sys.path:
     sys.path.append(str(SRC))
 
 from symforge.application.plugins.manager import PluginManager
+from symforge.domain.exceptions import InvalidManifestError, NetworkPermissionDeniedError
 
 scenarios("../../specs/bdd/30_plugins/plugins_no_code.feature")
 
@@ -259,7 +260,7 @@ def tento_instalar(plugin_manifesto_invalido: dict, plugin_manager: PluginManage
 @then("o Symforge bloqueia a instalação com mensagem clara de erro")
 def bloqueio_manifesto(plugin_manifesto_invalido: dict):
     manager: PluginManager = plugin_manifesto_invalido["manager"]
-    with pytest.raises(ValueError):
+    with pytest.raises(InvalidManifestError):
         manager.add_from_path(plugin_manifesto_invalido["repo"])
 
 
@@ -316,7 +317,7 @@ def instalo_plugin_rede(plugin_rede: dict):
     plugin_rede["error"] = None
     try:
         plugin_rede["manager"].add_from_path(plugin_rede["repo"])
-    except ValueError as exc:
+    except NetworkPermissionDeniedError as exc:
         plugin_rede["error"] = exc
     return plugin_rede
 

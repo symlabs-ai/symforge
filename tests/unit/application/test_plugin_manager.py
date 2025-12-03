@@ -14,6 +14,12 @@ import pytest
 from pathlib import Path
 
 from symforge.application.plugins.manager import PluginManager
+from symforge.domain.exceptions import (
+    InvalidManifestError,
+    NetworkPermissionDeniedError,
+    PluginNotFoundError,
+    PluginTypeError,
+)
 
 
 def create_plugin_repo(
@@ -106,7 +112,7 @@ class TestPluginAddFromPath:
         repo.mkdir()
         (repo / "plugin.py").write_text("def run(): pass")
 
-        with pytest.raises(ValueError, match="Manifesto ou código"):
+        with pytest.raises(InvalidManifestError):
             manager.add_from_path(repo)
 
     def test_add_plugin_without_code_raises_error(
@@ -118,7 +124,7 @@ class TestPluginAddFromPath:
 
         (repo / "plugin.yml").write_text(yaml.safe_dump({"id": "test"}))
 
-        with pytest.raises(ValueError, match="Manifesto ou código"):
+        with pytest.raises(InvalidManifestError):
             manager.add_from_path(repo)
 
     def test_add_plugin_replaces_existing(
@@ -219,13 +225,13 @@ class TestPluginExecuteSend:
         repo = create_plugin_repo(tmp_path, plugin_id="exporter", plugin_type="export")
         manager.add_from_path(repo)
 
-        with pytest.raises(ValueError, match="não é do tipo send"):
+        with pytest.raises(PluginTypeError):
             manager.execute_send("exporter", {})
 
     def test_execute_send_nonexistent_plugin_raises_error(
         self, manager: PluginManager
     ):
-        with pytest.raises(ValueError, match="Plugin não instalado"):
+        with pytest.raises(PluginNotFoundError):
             manager.execute_send("nonexistent", {})
 
 
@@ -290,7 +296,7 @@ class TestPluginExecuteHook:
         repo = create_plugin_repo(tmp_path, plugin_id="sender", plugin_type="send")
         manager.add_from_path(repo)
 
-        with pytest.raises(ValueError, match="não é do tipo hook"):
+        with pytest.raises(PluginTypeError):
             manager.execute_hook("sender", {})
 
 
@@ -318,7 +324,7 @@ class TestPluginExecuteGenerate:
         repo = create_plugin_repo(tmp_path, plugin_id="sender", plugin_type="send")
         manager.add_from_path(repo)
 
-        with pytest.raises(ValueError, match="não é do tipo generate"):
+        with pytest.raises(PluginTypeError):
             manager.execute_generate("sender", {})
 
 
@@ -345,7 +351,7 @@ class TestManifestValidation:
         )
         (repo / "plugin.py").write_text("def run(p): pass")
 
-        with pytest.raises(ValueError, match="id faltando"):
+        with pytest.raises(InvalidManifestError):
             manager.add_from_path(repo)
 
     def test_manifest_missing_type_raises_error(
@@ -368,7 +374,7 @@ class TestManifestValidation:
         )
         (repo / "plugin.py").write_text("def run(p): pass")
 
-        with pytest.raises(ValueError, match="type faltando"):
+        with pytest.raises(InvalidManifestError):
             manager.add_from_path(repo)
 
     def test_manifest_invalid_type_raises_error(
@@ -392,7 +398,7 @@ class TestManifestValidation:
         )
         (repo / "plugin.py").write_text("def run(p): pass")
 
-        with pytest.raises(ValueError, match="Tipo de plugin inválido"):
+        with pytest.raises(InvalidManifestError):
             manager.add_from_path(repo)
 
     def test_manifest_invalid_entrypoint_format_raises_error(
@@ -416,7 +422,7 @@ class TestManifestValidation:
         )
         (repo / "plugin.py").write_text("def run(p): pass")
 
-        with pytest.raises(ValueError, match="Entrypoint deve ser"):
+        with pytest.raises(InvalidManifestError):
             manager.add_from_path(repo)
 
 
@@ -444,7 +450,7 @@ class TestPermissionValidation:
         )
         (repo / "plugin.py").write_text("def run(p): pass")
 
-        with pytest.raises(ValueError, match="permissions ausente"):
+        with pytest.raises(InvalidManifestError):
             manager.add_from_path(repo)
 
     def test_network_permission_true_raises_error_offline_mode(
@@ -468,7 +474,7 @@ class TestPermissionValidation:
         )
         (repo / "plugin.py").write_text("def run(p): pass")
 
-        with pytest.raises(ValueError, match="network não é permitida"):
+        with pytest.raises(NetworkPermissionDeniedError):
             manager.add_from_path(repo)
 
     def test_fs_permission_not_list_raises_error(
@@ -492,7 +498,7 @@ class TestPermissionValidation:
         )
         (repo / "plugin.py").write_text("def run(p): pass")
 
-        with pytest.raises(ValueError, match="fs deve ser lista"):
+        with pytest.raises(InvalidManifestError):
             manager.add_from_path(repo)
 
 
@@ -511,7 +517,7 @@ class TestPluginEdgeCases:
         )
         manager.add_from_path(repo)
 
-        with pytest.raises(ValueError, match="Função de entrypoint não encontrada"):
+        with pytest.raises(InvalidManifestError):
             manager.execute_send("bad_entry", {})
 
     def test_entrypoint_wrong_module_raises_error(
@@ -526,7 +532,7 @@ class TestPluginEdgeCases:
         )
         manager.add_from_path(repo)
 
-        with pytest.raises(ValueError, match="Entrypoint deve referenciar module"):
+        with pytest.raises(InvalidManifestError):
             manager.execute_send("bad_module", {})
 
     def test_plugin_with_unicode_content(
