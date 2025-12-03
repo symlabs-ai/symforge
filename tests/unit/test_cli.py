@@ -228,3 +228,247 @@ class TestCLIHelp:
         assert "reset" in captured.out
         assert "decide" in captured.out
         assert "status" in captured.out
+
+
+class TestCLIValidate:
+    """Tests for validate command."""
+
+    def test_validate_valid_process(self, tmp_path: Path, capsys):
+        process_file = tmp_path / "PROCESS.yml"
+        process_file.write_text(
+            "name: test\n"
+            "phases:\n"
+            "  - id: phase1\n"
+            "    name: Phase One\n",
+            encoding="utf-8",
+        )
+
+        result = main([
+            "validate",
+            str(process_file),
+        ])
+
+        assert result == 0
+        captured = capsys.readouterr()
+        assert "PROCESS.yml ok" in captured.out
+
+    def test_validate_invalid_process(self, tmp_path: Path, capsys):
+        process_file = tmp_path / "PROCESS.yml"
+        # Invalid: missing name
+        process_file.write_text("phases: []\n", encoding="utf-8")
+
+        result = main([
+            "validate",
+            str(process_file),
+        ])
+
+        assert result == 1
+        captured = capsys.readouterr()
+        assert "validação falhou" in captured.err
+
+
+class TestCLIPlugin:
+    """Tests for plugin commands."""
+
+    def _create_plugin(self, tmp_path: Path, plugin_id: str = "test_plugin") -> Path:
+        repo = tmp_path / f"{plugin_id}_repo"
+        repo.mkdir()
+        manifest = f"""\
+id: {plugin_id}
+name: Test Plugin
+version: "1.0.0"
+type: send
+entrypoint: plugin:run
+permissions:
+  network: false
+  fs: []
+  env: []
+"""
+        code = """\
+def run(payload):
+    return {"status": "ok", "data": payload}
+"""
+        (repo / "plugin.yml").write_text(manifest, encoding="utf-8")
+        (repo / "plugin.py").write_text(code, encoding="utf-8")
+        return repo
+
+    def test_plugin_add(self, tmp_path: Path, capsys, monkeypatch):
+        monkeypatch.chdir(tmp_path)
+        repo = self._create_plugin(tmp_path)
+
+        result = main([
+            "plugin", "add",
+            str(repo),
+        ])
+
+        assert result == 0
+        captured = capsys.readouterr()
+        assert "plugin instalado" in captured.out
+
+    def test_plugin_list_empty(self, tmp_path: Path, capsys, monkeypatch):
+        monkeypatch.chdir(tmp_path)
+
+        result = main([
+            "plugin", "list",
+        ])
+
+        assert result == 0
+        captured = capsys.readouterr()
+        plugins = json.loads(captured.out)
+        assert plugins == []
+
+    def test_plugin_list_with_plugins(self, tmp_path: Path, capsys, monkeypatch):
+        monkeypatch.chdir(tmp_path)
+        repo = self._create_plugin(tmp_path, "my_plugin")
+        main(["plugin", "add", str(repo)])
+        capsys.readouterr()  # Clear output
+
+        result = main([
+            "plugin", "list",
+        ])
+
+        assert result == 0
+        captured = capsys.readouterr()
+        plugins = json.loads(captured.out)
+        assert len(plugins) == 1
+        assert plugins[0]["id"] == "my_plugin"
+
+    def test_plugin_send(self, tmp_path: Path, capsys, monkeypatch):
+        monkeypatch.chdir(tmp_path)
+        repo = self._create_plugin(tmp_path, "sender")
+        main(["plugin", "add", str(repo)])
+        capsys.readouterr()
+
+        result = main([
+            "plugin", "send",
+            "sender",
+            '{"message": "hello"}',
+        ])
+
+        assert result == 0
+        captured = capsys.readouterr()
+        response = json.loads(captured.out)
+        assert response["status"] == "ok"
+        assert response["data"]["message"] == "hello"
+
+    def test_plugin_export(self, tmp_path: Path, capsys, monkeypatch):
+        monkeypatch.chdir(tmp_path)
+        # Create export plugin
+        repo = tmp_path / "export_repo"
+        repo.mkdir()
+        (repo / "plugin.yml").write_text("""\
+id: exporter
+name: Exporter
+version: "1.0.0"
+type: export
+entrypoint: plugin:export_file
+permissions:
+  network: false
+  fs: []
+  env: []
+""", encoding="utf-8")
+        (repo / "plugin.py").write_text("""\
+def export_file(input_path, output_path=None):
+    return {"input": str(input_path), "output": str(output_path)}
+""", encoding="utf-8")
+        main(["plugin", "add", str(repo)])
+        capsys.readouterr()
+
+        input_file = tmp_path / "input.md"
+        input_file.write_text("# Input")
+        output_file = tmp_path / "output.csv"
+
+        result = main([
+            "plugin", "export",
+            "exporter",
+            str(input_file),
+            "--output", str(output_file),
+        ])
+
+        assert result == 0
+        captured = capsys.readouterr()
+        response = json.loads(captured.out)
+        assert "input" in response
+
+    def test_plugin_hook(self, tmp_path: Path, capsys, monkeypatch):
+        monkeypatch.chdir(tmp_path)
+        # Create hook plugin
+        repo = tmp_path / "hook_repo"
+        repo.mkdir()
+        (repo / "plugin.yml").write_text("""\
+id: hooker
+name: Hooker
+version: "1.0.0"
+type: hook
+entrypoint: plugin:on_event
+permissions:
+  network: false
+  fs: []
+  env: []
+""", encoding="utf-8")
+        (repo / "plugin.py").write_text("""\
+def on_event(context):
+    return {"event": context.get("event"), "handled": True}
+""", encoding="utf-8")
+        main(["plugin", "add", str(repo)])
+        capsys.readouterr()
+
+        result = main([
+            "plugin", "hook",
+            "hooker",
+            '{"event": "step_completed"}',
+        ])
+
+        assert result == 0
+        captured = capsys.readouterr()
+        response = json.loads(captured.out)
+        assert response["event"] == "step_completed"
+        assert response["handled"] is True
+
+    def test_plugin_generate(self, tmp_path: Path, capsys, monkeypatch):
+        monkeypatch.chdir(tmp_path)
+        # Create generate plugin
+        repo = tmp_path / "gen_repo"
+        repo.mkdir()
+        (repo / "plugin.yml").write_text("""\
+id: generator
+name: Generator
+version: "1.0.0"
+type: generate
+entrypoint: plugin:generate
+permissions:
+  network: false
+  fs: []
+  env: []
+""", encoding="utf-8")
+        (repo / "plugin.py").write_text("""\
+def generate(payload):
+    return {"content": f"Generated: {payload.get('prompt', '')}"}
+""", encoding="utf-8")
+        main(["plugin", "add", str(repo)])
+        capsys.readouterr()
+
+        result = main([
+            "plugin", "generate",
+            "generator",
+            '{"prompt": "hello world"}',
+        ])
+
+        assert result == 0
+        captured = capsys.readouterr()
+        response = json.loads(captured.out)
+        assert "Generated: hello world" in response["content"]
+
+
+class TestCLIAutoCommit:
+    """Tests for --auto-commit flag."""
+
+    def test_start_with_auto_commit(self, workspace: Path, capsys):
+        result = main([
+            "start",
+            "--process", "demo",
+            "--workspace", str(workspace),
+            "--auto-commit",
+        ])
+
+        assert result == 0
