@@ -10,6 +10,7 @@ if str(SRC) not in sys.path:
     sys.path.append(str(SRC))
 
 from symforge.application.usecases.observability import ObservabilityUseCases
+from symforge.domain.exceptions import InvalidManifestError
 from symforge.domain.session import Session
 from symforge.domain.states import SessionState
 
@@ -116,7 +117,7 @@ def comando_diagrama(process_invalido: dict, workspace: Path):
     try:
         obs.generate_diagram(process_file, out)
         process_invalido["error"] = None
-    except Exception as exc:  # noqa: BLE001
+    except InvalidManifestError as exc:
         process_invalido["error"] = exc
     return process_invalido
 

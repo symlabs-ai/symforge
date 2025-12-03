@@ -1,6 +1,8 @@
 from pathlib import Path
 
 import yaml
+
+from symforge.domain.exceptions import InvalidManifestError
 from symforge.domain.session import Session
 
 
@@ -31,7 +33,7 @@ class ObservabilityUseCases:
     def _validate_nodes(self, nodes: list[dict]) -> None:
         for node in nodes:
             if "id" not in node or "type" not in node:
-                raise ValueError("Nó inválido no PROCESS")
+                raise InvalidManifestError("nó inválido no PROCESS: falta id ou type")
 
     def _to_mermaid(self, nodes: list[dict]) -> str:
         lines = ["```mermaid", "flowchart TD"]
