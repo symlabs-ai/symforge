@@ -13,8 +13,10 @@
 | Story Points | 18 pts | 18 pts |
 | Features | 4 | 4 |
 | BDD Scenarios | 10 | 10 passing |
-| TDD Tests | - | 156 passing |
+| TDD Tests | - | 172 passing |
 | Coverage | >= 85% | 96% |
+| forge_coder | >= 8/10 | 9.4/10 |
+| Jorge | APPROVED | APPROVED |
 
 ---
 
@@ -56,6 +58,8 @@
 | 63ee919 | F06: Observability uses domain exceptions | F06 |
 | 9873e18 | F07: Increase CLI test coverage to 96% | F07 |
 | 9a80e2e | F08: Add ADR-010 Pre-Stakeholder Validation | F08 |
+| 3483767 | fix: Apply forge_coder review recommendations | Review |
+| 6825ea5 | docs: Add Sprint 2 review artifacts | Review |
 
 ---
 
@@ -65,10 +69,10 @@
 tests/bdd/           10 passed (cenários Gherkin)
 tests/unit/domain/   32 passed (Session)
 tests/unit/infra/    33 passed (SessionRepository + Git)
-tests/unit/app/      53 passed (Runtime + Plugins)
-tests/unit/cli/      19 passed (CLI commands)
+tests/unit/app/      69 passed (Runtime + Plugins + Validation)
+tests/unit/cli/      28 passed (CLI commands)
 ─────────────────────────────────────
-TOTAL               156 passed
+TOTAL               172 passed
 Coverage:            96%
 Lint:                All checks passed
 ```
@@ -79,10 +83,12 @@ Lint:                All checks passed
 
 | Metric | Sprint 1 | Sprint 2 | Delta |
 |--------|----------|----------|-------|
-| Tests | 146 | 156 | +10 |
+| Tests | 146 | 172 | +26 |
 | Coverage | 87% | 96% | +9% |
 | Features | 4 | 4 | = |
 | Story Points | 23 | 18 | -5 |
+| Commits | 1 | 8 | +7 |
+| forge_coder | 9.2/10 | 9.4/10 | +0.2 |
 
 ---
 
@@ -91,5 +97,18 @@ Lint:                All checks passed
 1. **Domain Exceptions**: Todos os módulos agora usam exceções específicas
 2. **CLI Coverage**: plugins_cli.py de 61% para 100%
 3. **Process**: ADR-010 formaliza pré-validação de stakeholder
+4. **Commits Granulares**: 8 commits vs 1 na Sprint 1
+5. **Templates**: review.md e retrospective.md templates criados
+
+---
+
+## Review Artifacts
+
+| Artifact | Status | File |
+|----------|--------|------|
+| forge_coder review | 9.4/10 | (session log) |
+| Jorge process review | APPROVED | jorge-process-review.md |
+| Sprint review | Complete | review.md |
+| Retrospective | Complete | retrospective.md |
 
 ---
