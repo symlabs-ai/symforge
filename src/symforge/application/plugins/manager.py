@@ -8,6 +8,7 @@ import yaml
 from symforge.domain.exceptions import (
     InvalidManifestError,
     NetworkPermissionDeniedError,
+    PluginLoadError,
     PluginNotFoundError,
     PluginTypeError,
 )
@@ -116,7 +117,7 @@ class PluginManager:
     def _import_module(self, code_path: Path, module_name: str):
         spec = importlib.util.spec_from_file_location(module_name, code_path)
         if spec is None or spec.loader is None:
-            raise ImportError(f"Não foi possível carregar módulo em {code_path}")
+            raise PluginLoadError(str(code_path), "spec ou loader inválido")
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
         return module

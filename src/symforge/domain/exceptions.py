@@ -68,3 +68,15 @@ class NetworkPermissionDeniedError(DomainException):
 
     def __init__(self):
         super().__init__("Permissão de network não é permitida em modo offline")
+
+
+class PluginLoadError(DomainException):
+    """Erro ao carregar módulo do plugin."""
+
+    def __init__(self, plugin_path: str, reason: str = ""):
+        self.plugin_path = plugin_path
+        self.reason = reason
+        msg = f"Não foi possível carregar plugin em '{plugin_path}'"
+        if reason:
+            msg += f": {reason}"
+        super().__init__(msg)
